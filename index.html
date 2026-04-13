@@ -1,0 +1,2660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ft.Bilal Designs | Freelance Graphic Designer</title>
+    <meta name="description"
+        content="ft.Bilal Designs — a Freelance Graphic Designer based in Kerala, India. Minimalist, professional, and purposeful design.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/coolvetica">
+
+    <style>
+        @font-face {
+            font-family: 'Coolvetica';
+            src: url('https://fonts.cdnfonts.com/s/14183/coolvetica%20rg.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Coolvetica';
+            src: url('https://fonts.cdnfonts.com/s/14183/coolvetica%20it.woff') format('woff');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        :root {
+            --font-heading: 'Coolvetica', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+            --fw-regular: 400;
+            --fw-medium: 500;
+            --color-bg: #1a1a1a;
+            --color-surface: #111111;
+            --color-accent: #C8A97E;
+            --color-border: #2A2A2A;
+            --color-text: #A0A0A0;
+            --color-heading: #F0F0F0;
+            --max-width: 1200px;
+            --section-gap: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.85;
+            overflow-x: hidden;
+            font-size: 15px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .brand {
+            font-family: var(--font-heading);
+            color: var(--color-heading);
+            font-weight: var(--fw-regular);
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: var(--section-gap) 0;
+        }
+
+        .tag {
+            font-family: var(--font-body);
+            font-weight: var(--fw-medium);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--color-accent);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .section-heading {
+            font-size: clamp(40px, 4vw, 54px);
+            margin-bottom: 20px;
+        }
+
+        .section-subtext {
+            font-size: 15px;
+            color: #A0A0A0;
+            margin-bottom: 40px;
+        }
+
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-animate].is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 34px;
+            border-radius: 100px;
+            font-weight: var(--fw-medium);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: #1a1c1b;
+        }
+
+        .btn-primary:hover {
+            background-color: #D6B98C;
+            transform: scale(1.025);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-accent);
+            color: #0A0A0A;
+            transform: scale(1.025);
+        }
+
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: rgba(10, 10, 10, 0.93);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid #1E1E1E;
+            padding: 5px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 5%;
+            max-width: 100%;
+            margin: 0 auto;
+            transition: padding 0.4s ease;
+        }
+
+        header.scrolled .nav-container {
+            padding: 15px 5%;
+        }
+
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            color: #F0F0F0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-size: 12px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #707070;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #F0F0F0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 24px;
+            height: 18px;
+            position: relative;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-accent);
+            position: absolute;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+
+        .hamburger span:nth-child(3) {
+            top: 16px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 8px;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #080808;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu .nav-link {
+            font-family: var(--font-body);
+            font-size: 26px;
+            color: #F0F0F0;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .mobile-menu.active .nav-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu .nav-link::after {
+            display: none;
+        }
+
+        .mobile-menu .nav-link:hover,
+        .mobile-menu .nav-link.active {
+            color: var(--color-accent);
+        }
+
+        /* Hero */
+        #home {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--color-bg);
+            overflow: hidden;
+            margin-bottom: var(--section-gap);
+        }
+
+        .hero-name-layer {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 25vh;
+            /* slightly above center so photo overlaps it */
+            font-family: 'Coolvetica', sans-serif;
+            font-size: clamp(90px, 14vw, 180px);
+            color: #F0F0F0;
+            z-index: 1;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+            opacity: 0;
+            animation: heroFadeIn 2.5s ease-in-out 0.4s forwards;
+            will-change: opacity;
+        }
+
+        .hero-photo-layer {
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            transform: translateX(-50%);
+            width: clamp(1440px, 45vw, 2560px);
+            height: auto;
+            object-fit: contain;
+            object-position: bottom center;
+            z-index: 2;
+            filter: grayscale(100%);
+            mix-blend-mode: luminosity;
+            opacity: 0;
+            transform-origin: bottom center;
+            animation: heroEpicReveal 2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+            will-change: transform, opacity, filter;
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+
+        @keyframes heroTextEpicReveal {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(90px) scale(0.92);
+                filter: blur(15px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes heroEpicReveal {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(160px);
+                filter: grayscale(100%) blur(20px) brightness(0.6);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+                filter: grayscale(100%) blur(0px) brightness(1);
+            }
+        }
+
+        .hero-labels-layer {
+            position: absolute;
+            bottom: 88px;
+            left: 188px;
+            z-index: 3;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: clamp(16px, 2vw, 22px);
+            color: #F0F0F0;
+            line-height: 1.4;
+            opacity: 0;
+            animation: heroFadeIn 0.8s ease-in-out 0.8s forwards;
+        }
+
+        .hero-cta-layer {
+            position: absolute;
+            bottom: 88px;
+            right: 188px;
+            z-index: 3;
+            background: #F0F0F0;
+            color: #1A1A1A;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: var(--fw-medium);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            border-radius: 100px;
+            padding: 15px 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, scale 0.3s ease;
+            opacity: 0;
+            animation: heroFadeIn 0.8s ease-in-out 0.8s forwards;
+            scale: 1;
+            /* explicitly define default scale */
+        }
+
+        .hero-cta-layer:hover {
+            background-color: #1a1a1a;
+            color: #F0F0F0;
+            border-color: #F0F0F0;
+            scale: 1.025;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-name-layer {
+                font-size: clamp(70px, 12vw, 120px);
+            }
+
+            .hero-photo-layer {
+                width: 100vw;
+            }
+
+            .hero-labels-layer {
+                left: 32px;
+                bottom: 36px;
+            }
+
+            .hero-cta-layer {
+                right: 32px;
+                bottom: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-name-layer {
+                font-size: clamp(48px, 13vw, 80px);
+                white-space: normal;
+                text-align: center;
+                line-height: 1.1;
+                width: 100%;
+                top: 20vh;
+            }
+
+            .hero-photo-layer {
+                width: 1000vw;
+            }
+
+            .hero-labels-layer {
+                font-size: 15.5px;
+                left: 24px;
+                bottom: 28px;
+            }
+
+            .hero-cta-layer {
+                font-size: 10px;
+                padding: 10px 20px;
+                right: 24px;
+                bottom: 28px;
+            }
+        }
+
+        /* About */
+        #about {
+            background-color: var(--color-bg);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img-col {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            /* This forces a single vertical column */
+            gap: 30px;
+        }
+
+
+        .stat-block {
+            border-bottom: 1px solid rgba(200, 169, 126, 0.2);
+            padding-bottom: 30px;
+        }
+
+        .stat-block:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+
+        .stat-num {
+            font-family: var(--font-heading);
+            font-size: 80px;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 5px;
+            font-style: italic;
+            /* Activates Coolvetica Italic */
+        }
+
+
+        .stat-label {
+            font-size: 10px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #505050;
+        }
+
+        .about-bio {
+            margin-bottom: 30px;
+        }
+
+        .about-bio p {
+            margin-bottom: 20px;
+            font-family: var(--font-body);
+            font-weight: var(--fw-regular);
+            font-size: 15px;
+            color: #A0A0A0;
+            line-height: 1.88;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .skill-tag {
+            font-size: 11px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px solid var(--color-accent);
+            color: var(--color-accent);
+            background: transparent;
+            padding: 7px 18px;
+            border-radius: 100px;
+        }
+
+        .tools-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tools-label {
+            font-size: 10px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: #404040;
+        }
+
+        .tool-badge {
+            font-size: 12px;
+            font-weight: var(--fw-medium);
+            color: #A0A0A0;
+            background: #141414;
+            border: 1px solid #2A2A2A;
+            padding: 6px 14px;
+            border-radius: 100px;
+        }
+
+        /* Services */
+        .section-header-center {
+            text-align: center;
+            margin-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-header-center p {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .services-grid-bottom {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 770px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: #0F0F0F;
+            border: 1px solid #1E1E1E;
+            border-radius: 8px;
+            padding: 38px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-8px);
+            box-shadow: 0 0 35px rgba(200, 169, 126, 0.09);
+        }
+
+        .service-icon-box {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--color-accent);
+            border-radius: 6px;
+            padding: 11px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-icon-box svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--color-accent);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .service-title {
+            font-family: var(--font-heading);
+            font-size: 21.5px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #F0F0F0;
+        }
+
+        .service-desc {
+            font-size: 14px;
+            color: #808080;
+            flex-grow: 1;
+            margin-bottom: 25px;
+        }
+
+        .service-link {
+            font-size: 12px;
+            font-weight: var(--fw-medium);
+            color: var(--color-accent);
+            text-transform: uppercase;
+            align-self: flex-start;
+            opacity: 0.7;
+            display: inline-block;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .service-link:hover {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        .service-note {
+            text-align: center;
+            font-size: 13px;
+            color: #505050;
+            font-style: italic;
+            margin-top: 40px;
+        }
+
+        /* Portfolio */
+        #works {
+            background-color: var(--color-bg);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            font-size: 12px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: transparent;
+            color: #505050;
+            border: 1px solid #222222;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--color-accent);
+            color: #0A0A0A;
+            border-color: var(--color-accent);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .portfolio-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            aspect-ratio: 4/3;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 8, 8, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 20px;
+            height: 20px;
+            border-top: 1.5px solid var(--color-accent);
+            border-right: 1.5px solid var(--color-accent);
+        }
+
+        .portfolio-title {
+            font-family: var(--font-body);
+            /* This switches it to Montserrat */
+            font-weight: 500;
+            /* Medium weight looks best for Montserrat titles */
+            font-size: 20px;
+            /* Locks in the exact same size for all titles */
+            color: #F0F0F0;
+            margin-bottom: 5px;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+
+        .portfolio-card:hover .portfolio-title {
+            transform: translateY(0);
+        }
+
+        .portfolio-category {
+            font-size: 11px;
+            font-weight: var(--fw-medium);
+            color: var(--color-accent);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.1s;
+        }
+
+        .portfolio-card:hover .portfolio-category {
+            transform: translateY(0);
+        }
+
+        .portfolio-link {
+            font-size: 12px;
+            font-weight: var(--fw-medium);
+            color: var(--color-accent);
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.2s;
+            opacity: 0;
+        }
+
+        .portfolio-card:hover .portfolio-link {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .view-all-works {
+            text-align: center;
+        }
+
+        .scatter-container {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            min-height: 500px;
+            overflow: hidden;
+            background: #111;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            border: 1px solid var(--color-border);
+            scroll-margin-top: 120px;
+        }
+
+        .scatter-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: clamp(160px, 20vw, 250px);
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+            cursor: grab;
+            user-select: none;
+            -webkit-user-drag: none;
+            will-change: transform;
+            opacity: 0;
+            transform: translate3d(0, 0, 0) scale(0.8);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            border: 1px solid #222;
+        }
+
+        .scatter-img.loaded {
+            opacity: 1;
+        }
+
+        .scatter-img.dragging {
+            transition: none !important;
+            cursor: grabbing;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        .scatter-shuffle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: transparent;
+            border: none;
+            color: var(--color-accent);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .scatter-shuffle-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+        }
+
+        .scatter-shuffle-btn:hover {
+            opacity: 1;
+            transform: scale(1.1) rotate(15deg);
+            color: #FFF;
+        }
+
+        /* Packages */
+        .loyalty-banner {
+            background-color: #0F0F0F;
+            border-top: 1px solid #1E1E1E;
+            border-bottom: 1px solid #1E1E1E;
+            padding: 18px;
+            text-align: center;
+            margin: -20px auto 50px auto;
+            width: 100%;
+            left: 0;
+            position: relative;
+        }
+
+        .loyalty-text {
+            font-size: 13px;
+            font-weight: var(--fw-medium);
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .package-card {
+            background-color: #0F0F0F;
+            border: 1px solid #1E1E1E;
+            border-radius: 10px;
+            padding: 44px 34px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 35px rgba(200, 169, 126, 0.09);
+        }
+
+        .package-card.elevated {
+            border-color: var(--color-accent);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-accent);
+            color: #0A0A0A;
+            font-size: 10px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            padding: 5px 14px;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+
+        .pkg-label {
+            font-size: 11px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #606060;
+            margin-bottom: 10px;
+        }
+
+        .pkg-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-family: var(--font-heading);
+            color: #F0F0F0;
+        }
+
+        .pkg-price {
+            font-size: 54px;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 5px;
+            font-family: var(--font-heading);
+        }
+
+        .pkg-sub {
+            font-size: 13px;
+            font-weight: var(--fw-regular);
+            color: #505050;
+            margin-bottom: 20px;
+        }
+
+        .pkg-divider {
+            height: 1px;
+            background: #1E1E1E;
+            margin: 20px 0;
+        }
+
+        .pkg-inc-label {
+            font-size: 11px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #404040;
+            margin-bottom: 15px;
+        }
+
+        .pkg-features {
+            flex-grow: 1;
+            margin-bottom: 25px;
+        }
+
+        .pkg-feature {
+            font-size: 14px;
+            color: #A0A0A0;
+            line-height: 2;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .pkg-feature svg {
+            margin-top: 7px;
+            flex-shrink: 0;
+            width: 14px;
+            height: 14px;
+        }
+
+        .pkg-feature.not-included {
+            color: #333333;
+        }
+
+        .pkg-feature.not-included svg {
+            stroke: #333333;
+        }
+
+        .pkg-note {
+            font-size: 12px;
+            font-style: italic;
+            color: #404040;
+            margin-bottom: 30px;
+        }
+
+        .custom-note {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .custom-note p {
+            font-size: 14px;
+            color: #505050;
+            margin-bottom: 10px;
+        }
+
+        .custom-link {
+            font-size: 14px;
+            font-weight: var(--fw-medium);
+            color: var(--color-accent);
+            opacity: 0.7;
+            display: inline-block;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .custom-link:hover {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 12px;
+            font-style: italic;
+            color: #383838;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contact */
+        #contact {
+            background-color: var(--color-bg);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            gap: 60px;
+        }
+
+        .contact-info p {
+            margin-bottom: 40px;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-detail-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .contact-detail-row svg {
+            fill: #C8A97E;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .contact-detail-row span:last-child {
+            font-size: 14px;
+            font-weight: var(--fw-medium);
+            color: #E0E0E0;
+        }
+
+        .contact-detail-row.faded span:last-child {
+            font-size: 13px;
+            color: #606060;
+            font-weight: var(--fw-regular);
+        }
+
+        .direct-reach-btns {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn-direct {
+            background: #1A1A1A;
+            border: 1px solid #2A2A2A;
+            color: #E0E0E0;
+            font-size: 12px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            padding: 12px 22px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-direct svg {
+            width: 16px;
+            height: 16px;
+            fill: #C8A97E;
+            transition: fill 0.3s ease;
+        }
+
+        .btn-direct.whatsapp svg {
+            fill: #25D366;
+        }
+
+        .btn-direct:hover {
+            border-color: var(--color-accent);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #111111;
+            border: 1px solid #2A2A2A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--color-accent);
+        }
+
+        .social-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .social-btn:hover {
+            border-color: var(--color-accent);
+            transform: scale(1.12);
+            box-shadow: 0 0 15px rgba(200, 169, 126, 0.3);
+        }
+
+        .contact-form {
+            background: #0D0D0D;
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #1E1E1E;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 11px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+            background: #080808;
+            border: 1px solid #222222;
+            border-radius: 5px;
+            padding: 14px 18px;
+            font-size: 14px;
+            color: #E0E0E0;
+            transition: all 0.25s ease;
+            box-sizing: border-box;
+        }
+
+        .form-control::placeholder {
+            color: #333333;
+        }
+
+        .form-control:focus {
+            border-color: var(--color-accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(200, 169, 126, 0.07);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C8A97E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 14px;
+            padding-right: 40px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            border: none;
+            background: var(--color-accent);
+            color: #0A0A0A;
+            font-size: 13px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            padding: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: #D6B98C;
+            transform: scale(1.015);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #070707;
+            border-top: 1px solid #181818;
+            padding: 44px 0 20px 0;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            color: var(--color-accent);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            font-size: 11px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #505050;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: #383838;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #141414;
+            font-size: 12px;
+            font-style: italic;
+            color: #282828;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            :root {
+                --section-gap: 65px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid-bottom {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 100%;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-gap: 50px;
+            }
+
+            .btn {
+                font-size: 10.5px;
+                padding: 12px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+
+
+            .about-grid {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 50px;
+            }
+
+            .tools-row {
+                flex-wrap: nowrap;
+                gap: 8px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 2px;
+            }
+
+            .tools-row::-webkit-scrollbar {
+                display: none;
+            }
+
+            .tool-badge {
+                white-space: nowrap;
+                padding: 5px 10px;
+                font-size: 10.5px;
+            }
+
+            .tools-label {
+                white-space: nowrap;
+                margin-right: 2px;
+            }
+
+            .services-grid,
+            .services-grid-bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .watermark {
+                font-size: 150px;
+            }
+        }
+
+        /* Custom Cursor */
+        @media (pointer: fine) {
+
+            body,
+            a,
+            button,
+            .scatter-img,
+            .filter-btn,
+            input,
+            textarea,
+            select {
+                cursor: none !important;
+            }
+        }
+
+        .cursor-dot {
+            position: fixed;
+            top: -3px;
+            left: -3px;
+            width: 6px;
+            height: 6px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10001;
+            will-change: transform;
+        }
+
+        .cursor-outline-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 36px;
+            height: 36px;
+            pointer-events: none;
+            z-index: 10000;
+            border-radius: 50%;
+            will-change: transform, width, height, border-radius;
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cursor-outline {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border: 1.5px solid rgba(200, 169, 126, 0.7);
+            border-radius: inherit;
+            transition: border-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        .cursor-outline::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: conic-gradient(transparent, transparent, rgba(200, 169, 126, 0.2), var(--color-accent));
+            animation: spinBorderGlow 5s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cursor-outline-wrapper.hovering .cursor-outline {
+            border-color: transparent;
+            padding: 2px;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: breatheBorder 2s infinite alternate ease-in-out;
+        }
+
+        .cursor-outline-wrapper.hovering .cursor-outline::before {
+            opacity: 1;
+        }
+
+        @keyframes spinBorderGlow {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes breatheBorder {
+            0% {
+                filter: drop-shadow(0 0 2px rgba(200, 169, 126, 0.4));
+            }
+
+            100% {
+                filter: drop-shadow(0 0 8px rgba(200, 169, 126, 0.8));
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                animation-delay: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            [data-animate] {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">ft.Bilal Designs</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#works" class="nav-link">Works</a></li>
+                <li><a href="#packages" class="nav-link">Packages</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu">
+        <a href="#home" class="nav-link delay-1">Home</a>
+        <a href="#about" class="nav-link delay-2">About</a>
+        <a href="#services" class="nav-link delay-3">Services</a>
+        <a href="#works" class="nav-link delay-4">Works</a>
+        <a href="#packages" class="nav-link" style="transition-delay: 0.5s;">Packages</a>
+        <a href="#contact" class="nav-link" style="transition-delay: 0.6s;">Contact</a>
+    </div>
+
+    <main id="main-content">
+        <!-- HERO SECTION -->
+        <section id="home">
+            <div class="hero-name-layer">Muhammed Bilal</div>
+            <img src="heroimg.png" alt="Muhammed Bilal" class="hero-photo-layer" width="1440" height="2560">
+            <div class="hero-labels-layer">
+                Freelance<br>Graphic<br>Designer
+            </div>
+            <a href="#scatterContainer" class="hero-cta-layer">See My Works</a>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <div class="container about-grid">
+                <div class="about-img-col" data-animate>
+                    <!-- <img src="about.png" alt="ft.Bilal working on a design project" loading="lazy">  about image -->
+                    <div class="stats-row">
+                        <div class="stat-block">
+                            <div class="stat-num">200+</div>
+                            <div class="stat-label">Projects Done</div>
+                        </div>
+                        <div class="stat-block">
+                            <div class="stat-num">3</div>
+                            <div class="stat-label">Years of Experience</div>
+                        </div>
+                        <div class="stat-block">
+                            <div class="stat-num">80+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text-col">
+                    <span class="tag" data-animate>About Me</span>
+                    <div class="about-bio" data-animate class="delay-2">
+                        <p>I'm Bilal — a freelance graphic designer based in Kerala, India, with 3 years of hands-on
+                            experience crafting visuals that are clean, purposeful, and built to perform. Working in
+                            Adobe Photoshop and Illustrator, I bring a minimal, professional approach to every project —
+                            stripping away the noise so the design does the talking.</p>
+                        <p>I'm open for project-based work and long-term creative collaborations — not as an employee,
+                            but as a dedicated creative partner. Whether you're a startup finding your visual voice, a
+                            small business building credibility, a content creator shaping your brand, a growing
+                            venture, an agency needing reliable support, or an individual who simply wants to look their
+                            best — I'm here for it.</p>
+                        <p>Every pixel has a purpose. Every deliverable is crafted with intention — because great design
+                            isn't just about looking good, it's about communicating the right thing to the right people
+                            at the right time.</p>
+                    </div>
+                    <!--  skill 
+                    <div class="skill-tags" data-animate class="delay-3">
+                        <span class="skill-tag">Adobe Photoshop</span>
+                        <span class="skill-tag">Adobe Illustrator</span>
+                        <span class="skill-tag">Logo Design</span>
+                        <span class="skill-tag">Brand Identity</span>
+                        <span class="skill-tag">Social Media Design</span>
+                        <span class="skill-tag">Poster Design</span>
+                        <span class="skill-tag">Photo Editing</span>
+                        <span class="skill-tag">Print Design</span>
+                        <span class="skill-tag">Typography</span>
+                    </div>
+                    -->
+                    <div class="tools-row" data-animate class="delay-4">
+                        <span class="tools-label">Primary Tools</span>
+                        <span class="tool-badge">Adobe Photoshop</span>
+                        <span class="tool-badge">Adobe Illustrator</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services">
+            <div class="container">
+                <div class="section-header-center" data-animate>
+                    <span class="tag">What I Do</span>
+                    <h2 class="section-heading">Services Built Around Your Vision</h2>
+                    <p class="section-subtext">Available for one-off projects and ongoing collaborations.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" data-animate class="delay-1">
+                        <div>
+                            <div class="service-icon-box">
+                                <!-- Brand Identity: diamond gem icon representing premium brand value -->
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M6 3h12l4 6-10 12L2 9z" />
+                                    <path d="M2 9h20" />
+                                    <path d="M6 3l4 6m8-6l-4 6" />
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Brand Identity</h3>
+                            <p class="service-desc">Logo systems, color palettes, typography stacks, and brand
+                                guidelines that help you show up consistently and confidently across every platform.</p>
+                        </div>
+                        <a href="#contact" class="service-link">Enquire &rarr;</a>
+                    </div>
+                    <div class="service-card" data-animate class="delay-2">
+                        <div>
+                            <div class="service-icon-box">
+                                <!-- Social Media Design: smartphone with a like/heart burst — feed & engagement -->
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                                    <line x1="12" y1="18" x2="12" y2="18" stroke-linecap="round" stroke-width="2.5" />
+                                    <path
+                                        d="M9 7.5c0-1 .8-1.5 1.5-1.5.6 0 1.1.3 1.5.8.4-.5.9-.8 1.5-.8.7 0 1.5.5 1.5 1.5 0 1.5-3 3-3 3S9 9 9 7.5z" />
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Social Media Design</h3>
+                            <p class="service-desc">Posts, story templates, reel covers, and highlight icons — designed
+                                to keep your feed sharp and your audience engaged month after month.</p>
+                        </div>
+                        <a href="#contact" class="service-link">Enquire &rarr;</a>
+                    </div>
+                    <div class="service-card" data-animate class="delay-3">
+                        <div>
+                            <div class="service-icon-box">
+                                <!-- Poster & Banner Design: megaphone / broadcast icon for visual promotion -->
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M3 11v2a1 1 0 001 1h1l2 4h1v-4h.5C11 14 18 17 18 17V7s-7 3-9.5 3H4a1 1 0 00-1 1z" />
+                                    <path d="M20 8.5a3.5 3.5 0 010 7" />
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Poster & Banner Design</h3>
+                            <p class="service-desc">High-impact posters, event banners, and promotional creatives for
+                                digital and print — built to demand attention at first glance.</p>
+                        </div>
+                        <a href="#contact" class="service-link">Enquire &rarr;</a>
+                    </div>
+                </div>
+                <div class="services-grid-bottom">
+                    <div class="service-card" data-animate class="delay-1">
+                        <div>
+                            <div class="service-icon-box">
+                                <!-- Photo Editing: camera with adjustment sliders — captures retouching/editing -->
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" />
+                                    <circle cx="12" cy="13" r="4" />
+                                    <line x1="9" y1="13" x2="9" y2="13" stroke-linecap="round" stroke-width="2.5" />
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Photo Editing</h3>
+                            <p class="service-desc">Colour grading, background removal, retouching, and creative
+                                compositing — turning raw images into polished, professional visuals.</p>
+                        </div>
+                        <a href="#contact" class="service-link">Enquire &rarr;</a>
+                    </div>
+                    <div class="service-card" data-animate class="delay-2">
+                        <div>
+                            <div class="service-icon-box">
+                                <!-- Print Design: folded document/file with fold corner — represents print-ready files -->
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="8" y1="13" x2="16" y2="13" />
+                                    <line x1="8" y1="17" x2="13" y2="17" />
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Print Design</h3>
+                            <p class="service-desc">Business cards, flyers, brochures, and promotional print materials —
+                                crafted print-ready with sharp attention to production standards.</p>
+                        </div>
+                        <a href="#contact" class="service-link">Enquire &rarr;</a>
+                    </div>
+                </div>
+
+                <p class="service-note" data-animate>* Poster & Banner Design, Print Design, Photo Editing, and other
+                    promotional works are available as additional services — separately priced outside monthly packages.
+                </p>
+            </div>
+        </section>
+
+        <!-- WORKS SECTION -->
+        <section id="works">
+            <div class="container">
+                <div class="section-header-center" data-animate>
+                    <span class="tag">Selected Works</span>
+                    <h2 class="section-heading">Projects That Define My Craft</h2>
+                    <p class="section-subtext">A curated collection spanning branding, digital design, and print.</p>
+                </div>
+
+                <div class="scatter-container" id="scatterContainer" data-animate>
+                    <button id="scatterShuffleBtn" class="scatter-shuffle-btn" aria-label="Shuffle Works">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <circle cx="15.5" cy="8.5" r="1.5" />
+                            <circle cx="15.5" cy="15.5" r="1.5" />
+                            <circle cx="8.5" cy="15.5" r="1.5" />
+                            <circle cx="12" cy="12" r="1.5" />
+                        </svg>
+                    </button>
+                    <img src="work1.png" class="scatter-img" alt="Work 1">
+                    <img src="work2.png" class="scatter-img" alt="Work 2" loading="lazy">
+                    <img src="work3.png" class="scatter-img" alt="Work 3" loading="lazy">
+                    <img src="work4.png" class="scatter-img" alt="Work 4" loading="lazy">
+                    <img src="work5.png" class="scatter-img" alt="Work 5" loading="lazy">
+                    <img src="work6.png" class="scatter-img" alt="Work 6" loading="lazy">
+                    <img src="work7.png" class="scatter-img" alt="Work 7" loading="lazy">
+                    <img src="work8.png" class="scatter-img" alt="Work 8" loading="lazy">
+                    <img src="work9.png" class="scatter-img" alt="Work 9" loading="lazy">
+                    <img src="work10.png" class="scatter-img" alt="Work 10" loading="lazy">
+                    <img src="work11.png" class="scatter-img" alt="Work 11" loading="lazy">
+                    <img src="work12.png" class="scatter-img" alt="Work 12" loading="lazy">
+                    <img src="work13.jpg" class="scatter-img" alt="Work 13" loading="lazy">
+                    <img src="work14.jpg" class="scatter-img" alt="Work 14" loading="lazy">
+                    <img src="work15.jpg" class="scatter-img" alt="Work 15" loading="lazy">
+                    <img src="work16.jpg" class="scatter-img" alt="Work 16" loading="lazy">
+                    <img src="work17.jpg" class="scatter-img" alt="Work 17" loading="lazy">
+                    <img src="work18.png" class="scatter-img" alt="Work 18" loading="lazy">
+                    <img src="work19.png" class="scatter-img" alt="Work 19" loading="lazy">
+                    <img src="work20.png" class="scatter-img" alt="Work 20" loading="lazy">
+                </div>
+
+                <div class="view-all-works" data-animate>
+                    <a href="works.html" class="btn btn-outline">View All Works &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PACKAGES SECTION -->
+        <section id="packages">
+            <div class="container">
+                <div class="section-header-center" data-animate>
+                    <span class="tag">Monthly Packages</span>
+                    <h2 class="section-heading">Simple, Transparent Packages</h2>
+                    <p class="section-subtext" style="max-width: 560px;">Consistent monthly design support — no
+                        surprises, no retainer lock-ins. Choose a package that fits your needs and scale up anytime. All
+                        packages are starting prices; final pricing depends on content type and complexity.</p>
+                </div>
+
+                <div class="loyalty-banner" data-animate>
+                    <div class="loyalty-text">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                            </polygon>
+                        </svg>
+                        Loyalty Reward — From your 4th month onwards, enjoy a 10% discount on your current package. The
+                        longer we work together, the more you save.
+                    </div>
+                </div>
+
+                <div class="packages-grid">
+                    <!-- Basic Card -->
+                    <div class="package-card" data-animate>
+                        <div class="pkg-top">
+                            <div class="pkg-label">Basic</div>
+                            <h3 class="pkg-title">Basic</h3>
+                            <div class="pkg-price">₹2,500</div>
+                            <div class="pkg-sub">/ month &middot; starting from</div>
+                            <div class="pkg-divider"></div>
+                        </div>
+
+                        <div class="pkg-features">
+                            <div class="pkg-inc-label">What's Included</div>
+
+                            <!-- Features -->
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                5 Social Media Posts / month
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                3 Revisions per deliverable
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Single design delivered within 24 hrs
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Source files on request (additional charge)
+                            </div>
+                            <div class="pkg-feature not-included">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                Priority turnaround (not included)
+                            </div>
+                            <div class="pkg-feature not-included">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                Dedicated brand style file (not included)
+                            </div>
+                        </div>
+
+                        <p class="pkg-note">* Poster, banner, business card, brochure & other promotional works charged
+                            additionally.</p>
+                        <a href="#contact" class="btn btn-outline pkg-btn">Get Started &rarr;</a>
+                    </div>
+
+                    <!-- Standard Card -->
+                    <div class="package-card elevated" data-animate class="delay-1">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="pkg-top">
+                            <div class="pkg-label">Standard</div>
+                            <h3 class="pkg-title">Standard</h3>
+                            <div class="pkg-price">₹4,500</div>
+                            <div class="pkg-sub">/ month &middot; starting from</div>
+                            <div class="pkg-divider"></div>
+                        </div>
+
+                        <div class="pkg-features">
+                            <div class="pkg-inc-label">What's Included</div>
+
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                10 Social Media Posts / month
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                3 Revisions per deliverable
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Single design delivered within 24 hrs
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Source files on request (additional charge)
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Priority turnaround on selected deliverables
+                            </div>
+                            <div class="pkg-feature not-included">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                Dedicated brand style file (not included)
+                            </div>
+                        </div>
+
+                        <p class="pkg-note">* Poster, banner, business card, brochure & other promotional works charged
+                            additionally.</p>
+                        <a href="#contact" class="btn btn-primary pkg-btn">Get Started &rarr;</a>
+                    </div>
+
+                    <!-- Premium Card -->
+                    <div class="package-card" data-animate class="delay-2">
+                        <div class="pkg-top">
+                            <div class="pkg-label">Premium</div>
+                            <h3 class="pkg-title">Premium</h3>
+                            <div class="pkg-price">₹6,000</div>
+                            <div class="pkg-sub">/ month &middot; starting from</div>
+                            <div class="pkg-divider"></div>
+                        </div>
+
+                        <div class="pkg-features">
+                            <div class="pkg-inc-label">What's Included</div>
+
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                15 Social Media Posts / month
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                3 Revisions per deliverable
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Single design delivered within 24 hrs
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Source files on request (additional charge)
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Priority turnaround on all deliverables
+                            </div>
+                            <div class="pkg-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Dedicated brand style file maintained
+                            </div>
+                        </div>
+
+                        <p class="pkg-note">* Poster, banner, business card, brochure & other promotional works charged
+                            additionally.</p>
+                        <a href="#contact" class="btn btn-outline pkg-btn">Get Started &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="custom-note" data-animate>
+                    <p>Need something custom — more posts, mixed service types, or long-term agency support?</p>
+                    <a href="#contact" class="custom-link">Let's talk about a custom package &rarr;</a>
+                </div>
+
+                <p class="pricing-note" data-animate>Prices vary slightly based on content type — social media post
+                    packages are priced marginally higher than story or reel cover packages. Final quote shared on
+                    enquiry.</p>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="container contact-grid">
+                <div class="contact-info" data-animate>
+                    <span class="tag">Work With Me</span>
+                    <h2 class="section-heading">Project in Mind?<br>Let's Talk.
+                    </h2>
+                    <p>I'm available for project-based work and long-term creative collaborations — not hiring, just
+                        creating. Whether it's a one-off design or an ongoing monthly package, reach out via WhatsApp or
+                        email and let's figure out what works best for you.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <span class="strong">ft.bilal.designs@gmail.com</span>
+                        </div>
+                        <div class="contact-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <span class="strong"><span style="font-weight: 400; opacity: 0.5;">+91</span> 75919
+                                44074</span>
+                        </div>
+                        <div class="contact-detail-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="strong">Kerala, India</span>
+                        </div>
+                    </div>
+
+                    <div class="direct-reach-btns">
+                        <a href="https://wa.me/917591944074" target="_blank" class="btn-direct whatsapp">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12.012 2C6.495 2 2.016 6.479 2.016 11.996c0 1.75.457 3.447 1.329 4.957L2 22l5.228-1.371a9.96 9.96 0 004.784 1.216h.004c5.517 0 9.996-4.478 9.996-9.995 0-2.673-1.04-5.183-2.928-7.073A9.957 9.957 0 0012.012 2zm0 16.892h-.003a8.312 8.312 0 01-4.238-1.155l-.304-.18-3.153.827.842-3.076-.198-.314A8.324 8.324 0 013.682 12c0-4.587 3.733-8.321 8.33-8.321 2.223 0 4.312.866 5.885 2.44A8.307 8.307 0 0120.337 12c0 4.588-3.733 8.321-8.324 8.321zm4.568-6.223c-.25-.125-1.482-.732-1.712-.816-.231-.084-.4-.125-.568.125-.168.25-.648.816-.795.983-.146.167-.294.188-.545.063-.25-.125-1.057-.39-2.014-1.246-.744-.666-1.246-1.49-1.393-1.74-.146-.25-.015-.385.11-.51.112-.112.25-.292.375-.438.125-.146.167-.25.25-.417.083-.167.042-.313-.021-.438-.063-.125-.568-1.37-.777-1.875-.203-.49-.41-.424-.568-.432-.147-.008-.315-.008-.483-.008-.168 0-.441.063-.672.313-.231.25-.881.862-.881 2.1 0 1.238.902 2.435 1.028 2.602.126.167 1.776 2.71 4.3 3.797.6.257 1.068.411 1.433.526.604.192 1.155.164 1.591.1.487-.072 1.482-.606 1.692-1.192.21-.586.21-1.087.147-1.192-.063-.105-.231-.167-.481-.292z" />
+                            </svg>
+                            WhatsApp Me
+                        </a>
+                        <a href="mailto:ft.bilal.designs@gmail.com" class="btn-direct">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                style="fill:none; stroke:#E0E0E0;">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Send an Email
+                        </a>
+                    </div>
+
+                    <div class="social-icons">
+                        <a href="https://instagram.com/ft.b_lal.__" target="_blank" class="social-btn"
+                            aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                style="fill:none;">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Behance">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h2.027c2.518 0 2.508-3.521 0-3.521h-2.027v3.521zm0 5.988h2.731c2.822 0 2.741-3.521 0-3.521h-2.731v3.521z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form" data-animate class="delay-1">
+                    <form action="#" method="POST" id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control"
+                                placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control"
+                                placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone / WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" class="form-control"
+                                placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="type" class="form-label">You Are A...</label>
+                            <select id="type" name="type" class="form-control" required>
+                                <option value="" disabled selected>Select from below</option>
+                                <option value="Individual">Individual</option>
+                                <option value="Startup">Startup</option>
+                                <option value="Small Business">Small Business</option>
+                                <option value="Content Creator">Content Creator</option>
+                                <option value="Agency">Agency</option>
+                                <option value="Venture">Venture</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest" class="form-label">Interested In...</label>
+                            <select id="interest" name="interest" class="form-control" required>
+                                <option value="" disabled selected>Select from below</option>
+                                <option value="Basic">Monthly Package — Basic (₹2,500)</option>
+                                <option value="Standard">Monthly Package — Standard (₹4,500)</option>
+                                <option value="Premium">Monthly Package — Premium (₹6,000)</option>
+                                <option value="Custom">Custom Package</option>
+                                <option value="One-off">One-off Project</option>
+                                <option value="Not Sure">Not Sure Yet — Let's Discuss</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Tell Me About Your Project</label>
+                            <textarea id="message" name="message" class="form-control" rows="5"
+                                placeholder="Briefly describe your project, brand, or what you need help with..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message &rarr;</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <a href="#home" class="footer-brand">ft.Bilal Designs</a>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#works">Works</a>
+                    <a href="#packages">Packages</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2026 ft.Bilal Designs. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // 1. Hero Load Sequence (Removed - handled via CSS keyframes)
+
+            // 2. Navbar Scroll Style & Active Link
+            const header = document.querySelector('header');
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links .nav-link, .mobile-menu .nav-link');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // Adjusted offset for active link calculation
+                    if (window.scrollY >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current) && current !== '') {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // 3. Intersection Observer for Scroll Reveals
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            if (!prefersReducedMotion) {
+                document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+            } else {
+                document.querySelectorAll('[data-animate]').forEach(el => el.classList.add('is-visible'));
+            }
+
+            // 4. Mobile Menu
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-menu .nav-link');
+
+            function toggleMenu() {
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenu.classList.contains('active')) toggleMenu();
+                });
+            });
+
+            // 5. Portfolio Filtering
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-category');
+
+                    portfolioCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                            setTimeout(() => { card.style.opacity = '1'; }, 50);
+                        } else {
+                            card.style.opacity = '0';
+                            setTimeout(() => { card.style.display = 'none'; }, 300);
+                        }
+                    });
+                });
+            });
+
+            // 6. Kinetic Parallax Scroll (rAF)
+            if (!prefersReducedMotion) {
+                const heroPhoto = document.querySelector('.hero-photo-layer');
+                const heroName = document.querySelector('.hero-name-layer');
+                const heroLabels = document.querySelector('.hero-labels-layer');
+                const heroCta = document.querySelector('.hero-cta-layer');
+
+                let isLoaded = false;
+                // Allow the 2s cinematic entrance to finish before we take over inline transforms
+                setTimeout(() => { isLoaded = true; }, 1800);
+
+                function parallax() {
+                    const scrollY = window.scrollY;
+                    if (scrollY < window.innerHeight && isLoaded) {
+                        if (heroPhoto) {
+                            heroPhoto.style.transform = `translateX(-50%) translateY(${scrollY * 0.4}px)`;
+                            heroPhoto.style.filter = `grayscale(100%) blur(${scrollY * 0.02}px)`;
+                            heroPhoto.style.opacity = 1 - (scrollY / window.innerHeight) * 1.5;
+                        }
+
+                        if (heroName) {
+                            // Name text floats up in opposite direction
+                            heroName.style.transform = `translateX(-50%) translateY(${-scrollY * 0.25}px)`;
+                            heroName.style.opacity = 1 - (scrollY / window.innerHeight) * 1.8;
+                        }
+
+                        if (heroLabels) {
+                            // Labels drift slightly outward
+                            heroLabels.style.transform = `translateY(${scrollY * -0.15}px)`;
+                            heroLabels.style.opacity = 1 - (scrollY / window.innerHeight) * 2;
+                        }
+                        if (heroCta) {
+                            heroCta.style.transform = `translateY(${scrollY * -0.15}px)`;
+                            heroCta.style.opacity = 1 - (scrollY / window.innerHeight) * 2;
+                        }
+                    } else if (scrollY === 0 && isLoaded) {
+                        // Hard reset to allow styling engine to idle cleanly at top
+                        if (heroPhoto) { heroPhoto.style.transform = 'translateX(-50%) translateY(0)'; heroPhoto.style.filter = 'grayscale(100%) blur(0px)'; heroPhoto.style.opacity = '1'; }
+                        if (heroName) { heroName.style.transform = 'translateX(-50%) translateY(0)'; heroName.style.opacity = '1'; }
+                        if (heroLabels) { heroLabels.style.transform = ''; heroLabels.style.opacity = '1'; }
+                        if (heroCta) { heroCta.style.transform = ''; heroCta.style.opacity = '1'; }
+                    }
+                    requestAnimationFrame(parallax);
+                }
+                requestAnimationFrame(parallax);
+            }
+
+            // 7. Smooth Scroll custom links to #contact
+            const customLinks = document.querySelectorAll('.pkg-btn, .custom-link');
+            customLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+
+                            // Map package clicks to contact form select
+                            const select = document.getElementById('interest');
+                            if (select) {
+                                const packageCard = link.closest('.package-card');
+                                if (packageCard) {
+                                    const packageText = packageCard.querySelector('.pkg-label').innerText.toLowerCase();
+                                    if (packageText === 'basic') select.value = 'Basic';
+                                    else if (packageText === 'standard') select.value = 'Standard';
+                                    else if (packageText === 'premium') select.value = 'Premium';
+                                } else if (link.classList.contains('custom-link')) {
+                                    select.value = 'Custom';
+                                }
+
+                                // Highlight select field temporarily
+                                setTimeout(() => {
+                                    select.focus();
+                                }, 800);
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Form submission prevention for demo
+            document.getElementById('contactForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Form submitted successfully! (This is a demo)');
+            });
+
+            // 8. Scattered Gallery Logic
+            const scatterContainer = document.getElementById('scatterContainer');
+            const scatterImages = document.querySelectorAll('.scatter-img');
+            const shuffleBtn = document.getElementById('scatterShuffleBtn');
+
+            if (scatterContainer && scatterImages.length > 0) {
+                let highestZ = 10;
+                let isShuffling = false;
+
+                const containerRect = scatterContainer.getBoundingClientRect();
+                const containerW = containerRect.width;
+                const containerH = containerRect.height;
+
+                const randomizePositions = (isInitial = false) => {
+                    if (isShuffling) return;
+                    if (!isInitial) isShuffling = true;
+
+                    let zOffsets = Array.from({ length: scatterImages.length }, (_, i) => i);
+                    zOffsets.sort(() => Math.random() - 0.5);
+
+                    scatterImages.forEach((img, i) => {
+                        let maxL = containerW - img.offsetWidth;
+                        let maxT = containerH - img.offsetHeight;
+
+                        if (maxL <= 0 || isNaN(maxL)) maxL = containerW - 200;
+                        if (maxT <= 0 || isNaN(maxT)) maxT = containerH - 250;
+
+                        const tx = Math.random() * maxL;
+                        const ty = Math.random() * maxT;
+                        const rot = (Math.random() - 0.5) * 60;
+
+                        img.dataset.tx = tx;
+                        img.dataset.ty = ty;
+                        img.dataset.rot = rot;
+
+                        if (isInitial) {
+                            img.style.zIndex = highestZ + zOffsets[i];
+                            img.style.transform = `translate3d(${containerW / 2 - 100}px, ${containerH / 2}px, 0) scale(0)`;
+                            setTimeout(() => {
+                                img.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(1)`;
+                                img.classList.add('loaded');
+                            }, 100 + i * 50);
+                        } else {
+                            // Professional shuffle: Compress scale down to hide z-index swap, 
+                            // gently scatter staggered to completely prevent lag.
+                            img.style.transform = `translate3d(${img.dataset.currentTx || 0}px, ${img.dataset.currentTy || 0}px, 0) rotate(${img.dataset.currentRot || 0}deg) scale(0.85)`;
+
+                            setTimeout(() => {
+                                img.style.zIndex = highestZ + zOffsets[i];
+                                img.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${rot}deg) scale(1)`;
+
+                                img.dataset.currentTx = tx;
+                                img.dataset.currentTy = ty;
+                                img.dataset.currentRot = rot;
+                            }, 150 + i * 20);
+                        }
+                    });
+
+                    if (isInitial) {
+                        scatterImages.forEach((img) => {
+                            img.dataset.currentTx = img.dataset.tx;
+                            img.dataset.currentTy = img.dataset.ty;
+                            img.dataset.currentRot = img.dataset.rot;
+                        });
+                    }
+
+                    if (!isInitial) {
+                        setTimeout(() => { isShuffling = false; }, 800);
+                    }
+                    highestZ += scatterImages.length;
+                };
+
+                randomizePositions(true);
+
+                if (shuffleBtn) {
+                    shuffleBtn.addEventListener('click', () => {
+                        randomizePositions(false);
+                    });
+                }
+
+                scatterImages.forEach((img) => {
+                    let isDragging = false;
+                    let startX, startY;
+                    let initialTx, initialTy;
+
+                    const startDrag = (e) => {
+                        if (e.type === 'mousedown' && e.button !== 0) return;
+                        if (isShuffling) return;
+
+                        isDragging = true;
+                        highestZ++;
+                        img.style.zIndex = highestZ;
+                        img.classList.add('dragging');
+
+                        const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                        const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+
+                        startX = clientX;
+                        startY = clientY;
+
+                        initialTx = parseFloat(img.dataset.currentTx) || 0;
+                        initialTy = parseFloat(img.dataset.currentTy) || 0;
+
+                        img.style.transform = `translate3d(${initialTx}px, ${initialTy}px, 0) rotate(${img.dataset.currentRot || 0}deg) scale(1.05)`;
+
+                        e.preventDefault();
+                    };
+
+                    const doDrag = (e) => {
+                        if (!isDragging) return;
+                        const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                        const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+
+                        const dx = clientX - startX;
+                        const dy = clientY - startY;
+
+                        const newTx = initialTx + dx;
+                        const newTy = initialTy + dy;
+
+                        img.style.transform = `translate3d(${newTx}px, ${newTy}px, 0) rotate(${img.dataset.currentRot || 0}deg) scale(1.05)`;
+                    };
+
+                    const endDrag = (e) => {
+                        if (isDragging) {
+                            isDragging = false;
+                            img.classList.remove('dragging');
+
+                            const clientX = e.type.includes('mouse') ? e.clientX : (e.changedTouches ? e.changedTouches[0].clientX : startX);
+                            const clientY = e.type.includes('mouse') ? e.clientY : (e.changedTouches ? e.changedTouches[0].clientY : startY);
+
+                            const dx = clientX - startX;
+                            const dy = clientY - startY;
+
+                            const newTx = initialTx + dx;
+                            const newTy = initialTy + dy;
+
+                            img.dataset.currentTx = newTx;
+                            img.dataset.currentTy = newTy;
+
+                            img.style.transform = `translate3d(${newTx}px, ${newTy}px, 0) rotate(${img.dataset.currentRot || 0}deg) scale(1)`;
+                        }
+                    };
+
+                    img.addEventListener('mousedown', startDrag);
+                    document.addEventListener('mousemove', doDrag);
+                    document.addEventListener('mouseup', endDrag);
+
+                    img.addEventListener('touchstart', startDrag, { passive: false });
+                    document.addEventListener('touchmove', doDrag, { passive: false });
+                    document.addEventListener('touchend', endDrag);
+                });
+            }
+
+            // 9. Custom Cursor Loop
+            if (window.matchMedia("(pointer: fine)").matches) {
+                const cursorDot = document.createElement('div');
+                cursorDot.className = 'cursor-dot';
+
+                const cursorOutlineWrapper = document.createElement('div');
+                cursorOutlineWrapper.className = 'cursor-outline-wrapper';
+                const cursorOutline = document.createElement('div');
+                cursorOutline.className = 'cursor-outline';
+
+                cursorOutlineWrapper.appendChild(cursorOutline);
+                document.body.appendChild(cursorDot);
+                document.body.appendChild(cursorOutlineWrapper);
+
+                let mouseX = 0, mouseY = 0;
+                let outlineX = 0, outlineY = 0;
+
+                window.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+                });
+
+                let hoverTarget = null;
+                const interactables = document.querySelectorAll('a:not(.nav-link):not(.nav-brand):not(footer a):not(.service-link):not(.social-btn):not(.custom-link), button:not(#scatterShuffleBtn):not(.btn-direct):not(.btn-submit), .filter-btn');
+                interactables.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        hoverTarget = el;
+                        cursorOutlineWrapper.classList.add('hovering');
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        hoverTarget = null;
+                        cursorOutlineWrapper.classList.remove('hovering');
+                    });
+                });
+
+                const animateCursor = () => {
+                    if (hoverTarget) {
+                        const rect = hoverTarget.getBoundingClientRect();
+                        const targetX = rect.left + rect.width / 2;
+                        const targetY = rect.top + rect.height / 2;
+
+                        outlineX += (targetX - outlineX) * 0.3;
+                        outlineY += (targetY - outlineY) * 0.3;
+
+                        cursorOutlineWrapper.style.width = `${rect.width + 12}px`;
+                        cursorOutlineWrapper.style.height = `${rect.height + 12}px`;
+
+                        const computedStyle = window.getComputedStyle(hoverTarget);
+                        cursorOutlineWrapper.style.borderRadius = computedStyle.borderRadius;
+                    } else {
+                        let dx = mouseX - outlineX;
+                        let dy = mouseY - outlineY;
+                        outlineX += dx * 0.2;
+                        outlineY += dy * 0.2;
+
+                        cursorOutlineWrapper.style.width = '36px';
+                        cursorOutlineWrapper.style.height = '36px';
+                        cursorOutlineWrapper.style.borderRadius = '50%';
+                    }
+
+                    cursorOutlineWrapper.style.transform = `translate3d(${outlineX}px, ${outlineY}px, 0) translate(-50%, -50%)`;
+                    requestAnimationFrame(animateCursor);
+                };
+                requestAnimationFrame(animateCursor);
+            }
+        });
+    </script>
+</body>
+
+</html>

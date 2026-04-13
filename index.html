@@ -292,46 +292,39 @@
             background: none;
             border: none;
             cursor: pointer;
-            width: 24px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             position: relative;
             z-index: 1002;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
         }
 
-        .hamburger span {
+        .hamburger svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--color-accent);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            transition: opacity 0.3s ease;
+        }
+
+        .hamburger .icon-menu {
             display: block;
-            width: 100%;
-            height: 2px;
-            background-color: var(--color-accent);
-            position: absolute;
-            left: 0;
-            transition: all 0.3s ease;
         }
 
-        .hamburger span:nth-child(1) {
-            top: 0;
+        .hamburger .icon-close {
+            display: none;
         }
 
-        .hamburger span:nth-child(2) {
-            top: 8px;
+        .hamburger.active .icon-menu {
+            display: none;
         }
 
-        .hamburger span:nth-child(3) {
-            top: 16px;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg);
-            top: 8px;
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg);
-            top: 8px;
+        .hamburger.active .icon-close {
+            display: block;
         }
 
         .mobile-menu {
@@ -380,6 +373,31 @@
         .mobile-menu .nav-link:hover,
         .mobile-menu .nav-link.active {
             color: var(--color-accent);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 22px;
+            right: 5%;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+            z-index: 1003;
+        }
+
+        .mobile-menu-close svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--color-accent);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
         }
 
         /* Hero */
@@ -542,22 +560,25 @@
                 text-align: center;
                 line-height: 1.1;
                 width: 100%;
-                top: 20vh;
+                top: 15vh;
             }
 
             .hero-photo-layer {
-                width: 1000vw;
+                width: 120vw;
+                bottom: 40px;
             }
 
             .hero-labels-layer {
-                font-size: 15.5px;
+                font-size: 13px;
                 left: 24px;
                 bottom: 28px;
+                line-height: 1.5;
             }
 
             .hero-cta-layer {
                 font-size: 10px;
-                padding: 10px 20px;
+                padding: 9px 18px;
+                letter-spacing: 0.10em;
                 right: 24px;
                 bottom: 28px;
             }
@@ -568,6 +589,7 @@
             background-color: var(--color-bg);
             border-top: 1px solid var(--color-border);
             border-bottom: 1px solid var(--color-border);
+            padding: var(--section-gap) 0;
         }
 
         .about-grid {
@@ -720,9 +742,8 @@
         }
 
         .service-card:hover {
-            border-color: var(--color-accent);
-            transform: translateY(-8px);
-            box-shadow: 0 0 35px rgba(200, 169, 126, 0.09);
+            border-color: rgba(200, 169, 126, 0.4);
+            transform: translateY(-4px);
         }
 
         .service-icon-box {
@@ -1038,8 +1059,8 @@
         }
 
         .package-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 35px rgba(200, 169, 126, 0.09);
+            border-color: rgba(200, 169, 126, 0.35);
+            transform: translateY(-4px);
         }
 
         .package-card.elevated {
@@ -1208,7 +1229,11 @@
         }
 
         .contact-detail-row svg {
-            fill: #C8A97E;
+            fill: none;
+            stroke: #E0E0E0;
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
             width: 16px;
             height: 16px;
             flex-shrink: 0;
@@ -1226,47 +1251,12 @@
             font-weight: var(--fw-regular);
         }
 
-        .direct-reach-btns {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .btn-direct {
-            background: #1A1A1A;
-            border: 1px solid #2A2A2A;
-            color: #E0E0E0;
-            font-size: 12px;
-            font-weight: var(--fw-medium);
-            text-transform: uppercase;
-            padding: 12px 22px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-direct svg {
-            width: 16px;
-            height: 16px;
-            fill: #C8A97E;
-            transition: fill 0.3s ease;
-        }
-
-        .btn-direct.whatsapp svg {
-            fill: #25D366;
-        }
-
-        .btn-direct:hover {
-            border-color: var(--color-accent);
-        }
-
         .social-icons {
             display: flex;
-            gap: 15px;
+            gap: 14px;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: nowrap;
         }
 
         .social-btn {
@@ -1278,8 +1268,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: border-color 0.25s ease, opacity 0.25s ease;
             color: var(--color-accent);
+            flex-shrink: 0;
         }
 
         .social-btn svg {
@@ -1288,10 +1279,11 @@
             fill: currentColor;
         }
 
+
+
         .social-btn:hover {
             border-color: var(--color-accent);
-            transform: scale(1.12);
-            box-shadow: 0 0 15px rgba(200, 169, 126, 0.3);
+            opacity: 0.85;
         }
 
         .contact-form {
@@ -1364,6 +1356,28 @@
         .btn-submit:hover {
             background: #D6B98C;
             transform: scale(1.015);
+        }
+
+        .btn-submit.success-pop {
+            animation: successPopAnim 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            pointer-events: none;
+        }
+
+        @keyframes successPopAnim {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 rgba(200, 169, 126, 0);
+            }
+
+            50% {
+                transform: scale(1.06);
+                box-shadow: 0 0 25px rgba(200, 169, 126, 0.6);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 12px rgba(200, 169, 126, 0.3);
+            }
         }
 
         /* Footer */
@@ -1462,7 +1476,7 @@
             }
 
             .hamburger {
-                display: block;
+                display: flex;
             }
 
 
@@ -1473,27 +1487,30 @@
                 gap: 50px;
             }
 
-            .tools-row {
-                flex-wrap: nowrap;
-                gap: 8px;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                padding-bottom: 2px;
+            .about-img-col {
+                padding: 0 5%;
             }
 
-            .tools-row::-webkit-scrollbar {
-                display: none;
+            .stat-block {
+                text-align: center;
+            }
+
+            .tools-row {
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+            }
+
+            .tools-label {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 6px;
             }
 
             .tool-badge {
                 white-space: nowrap;
-                padding: 5px 10px;
-                font-size: 10.5px;
-            }
-
-            .tools-label {
-                white-space: nowrap;
-                margin-right: 2px;
+                padding: 5px 14px;
+                font-size: 11px;
             }
 
             .services-grid,
@@ -1546,76 +1563,41 @@
             pointer-events: none;
             z-index: 10001;
             will-change: transform;
+            transition: transform 0.15s ease, opacity 0.2s ease;
+        }
+
+        .cursor-dot.hovering {
+            opacity: 0;
+            transform: translate3d(var(--dx, 0), var(--dy, 0), 0) scale(0.5);
         }
 
         .cursor-outline-wrapper {
             position: fixed;
             top: 0;
             left: 0;
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             pointer-events: none;
             z-index: 10000;
             border-radius: 50%;
-            will-change: transform, width, height, border-radius;
-            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+            transition: opacity 0.2s ease;
         }
 
         .cursor-outline {
             width: 100%;
             height: 100%;
-            position: relative;
-            border: 1.5px solid rgba(200, 169, 126, 0.7);
+            border: 1px solid rgba(200, 169, 126, 0.55);
             border-radius: inherit;
-            transition: border-color 0.3s ease;
-            overflow: hidden;
-        }
-
-        .cursor-outline::before {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
-            background: conic-gradient(transparent, transparent, rgba(200, 169, 126, 0.2), var(--color-accent));
-            animation: spinBorderGlow 5s linear infinite;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: border-color 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .cursor-outline-wrapper.hovering .cursor-outline {
-            border-color: transparent;
-            padding: 2px;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            animation: breatheBorder 2s infinite alternate ease-in-out;
+            border-color: rgba(200, 169, 126, 0.9);
+            transform: scale(1.5);
         }
 
-        .cursor-outline-wrapper.hovering .cursor-outline::before {
-            opacity: 1;
-        }
 
-        @keyframes spinBorderGlow {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes breatheBorder {
-            0% {
-                filter: drop-shadow(0 0 2px rgba(200, 169, 126, 0.4));
-            }
-
-            100% {
-                filter: drop-shadow(0 0 8px rgba(200, 169, 126, 0.8));
-            }
-        }
 
         @media (prefers-reduced-motion: reduce) {
             * {
@@ -1648,12 +1630,26 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
+                <svg class="icon-menu" viewBox="0 0 24 24">
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+                <svg class="icon-close" viewBox="0 0 24 24">
+                    <line x1="5" y1="5" x2="19" y2="19" />
+                    <line x1="19" y1="5" x2="5" y2="19" />
+                </svg>
             </button>
         </div>
     </header>
 
     <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">
+            <svg viewBox="0 0 24 24">
+                <line x1="5" y1="5" x2="19" y2="19" />
+                <line x1="19" y1="5" x2="5" y2="19" />
+            </svg>
+        </button>
         <a href="#home" class="nav-link delay-1">Home</a>
         <a href="#about" class="nav-link delay-2">About</a>
         <a href="#services" class="nav-link delay-3">Services</a>
@@ -2121,61 +2117,60 @@
 
                     <div class="contact-details">
                         <div class="contact-detail-row">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            <!-- Mail icon: open envelope with letter -->
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <polyline points="2,4 12,13 22,4" />
                             </svg>
                             <span class="strong">ft.bilal.designs@gmail.com</span>
                         </div>
                         <div class="contact-detail-row">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            <!-- Phone icon: modern handset -->
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
                             </svg>
-                            <span class="strong"><span style="font-weight: 400; opacity: 0.5;">+91</span> 75919
+                            <span class="strong"><span style="font-weight: 400;">+91</span> 75919
                                 44074</span>
                         </div>
                         <div class="contact-detail-row">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <!-- Location icon: pin with dot -->
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                                <circle cx="12" cy="9" r="2.5" fill="#1a1a1a" stroke="#E0E0E0" />
                             </svg>
                             <span class="strong">Kerala, India</span>
                         </div>
                     </div>
 
-                    <div class="direct-reach-btns">
-                        <a href="https://wa.me/917591944074" target="_blank" class="btn-direct whatsapp">
+                    <div class="social-icons">
+                        <a href="https://wa.me/917591944074" target="_blank" class="social-btn whatsapp-btn"
+                            aria-label="WhatsApp">
                             <svg viewBox="0 0 24 24">
                                 <path
                                     d="M12.012 2C6.495 2 2.016 6.479 2.016 11.996c0 1.75.457 3.447 1.329 4.957L2 22l5.228-1.371a9.96 9.96 0 004.784 1.216h.004c5.517 0 9.996-4.478 9.996-9.995 0-2.673-1.04-5.183-2.928-7.073A9.957 9.957 0 0012.012 2zm0 16.892h-.003a8.312 8.312 0 01-4.238-1.155l-.304-.18-3.153.827.842-3.076-.198-.314A8.324 8.324 0 013.682 12c0-4.587 3.733-8.321 8.33-8.321 2.223 0 4.312.866 5.885 2.44A8.307 8.307 0 0120.337 12c0 4.588-3.733 8.321-8.324 8.321zm4.568-6.223c-.25-.125-1.482-.732-1.712-.816-.231-.084-.4-.125-.568.125-.168.25-.648.816-.795.983-.146.167-.294.188-.545.063-.25-.125-1.057-.39-2.014-1.246-.744-.666-1.246-1.49-1.393-1.74-.146-.25-.015-.385.11-.51.112-.112.25-.292.375-.438.125-.146.167-.25.25-.417.083-.167.042-.313-.021-.438-.063-.125-.568-1.37-.777-1.875-.203-.49-.41-.424-.568-.432-.147-.008-.315-.008-.483-.008-.168 0-.441.063-.672.313-.231.25-.881.862-.881 2.1 0 1.238.902 2.435 1.028 2.602.126.167 1.776 2.71 4.3 3.797.6.257 1.068.411 1.433.526.604.192 1.155.164 1.591.1.487-.072 1.482-.606 1.692-1.192.21-.586.21-1.087.147-1.192-.063-.105-.231-.167-.481-.292z" />
                             </svg>
-                            WhatsApp Me
                         </a>
-                        <a href="mailto:ft.bilal.designs@gmail.com" class="btn-direct">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                style="fill:none; stroke:#E0E0E0;">
-                                <path stroke-linecap="round" stroke-linejoin="round"
+                        <a href="mailto:ft.bilal.designs@gmail.com" class="social-btn" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                style="fill:none; stroke: var(--color-accent);">
+                                <path
                                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            Send an Email
                         </a>
-                    </div>
-
-                    <div class="social-icons">
                         <a href="https://instagram.com/ft.b_lal.__" target="_blank" class="social-btn"
                             aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                style="fill:none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                style="fill:none; stroke: var(--color-accent);">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                             </svg>
                         </a>
                         <a href="#" class="social-btn" aria-label="Behance">
-                            <svg viewBox="0 0 24 24">
+                            <svg viewBox="0 0 24 24" style="fill: var(--color-accent);">
                                 <path
                                     d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h2.027c2.518 0 2.508-3.521 0-3.521h-2.027v3.521zm0 5.988h2.731c2.822 0 2.741-3.521 0-3.521h-2.731v3.521z" />
                             </svg>
@@ -2184,25 +2179,29 @@
                 </div>
 
                 <div class="contact-form" data-animate class="delay-1">
-                    <form action="#" method="POST" id="contactForm">
+                    <!-- Hidden iframe to prevent redirect on form submission -->
+                    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                    <form
+                        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdGOeUIWHExGRbo1VkDhhRHA1FLpgMlz75G2MuIyEuuyD0zRA/formResponse"
+                        method="POST" id="contactForm" target="hidden_iframe">
                         <div class="form-group">
                             <label for="name" class="form-label">Your Name</label>
-                            <input type="text" id="name" name="name" class="form-control"
+                            <input type="text" id="name" name="entry.1912438839" class="form-control"
                                 placeholder="Enter your full name" required>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-control"
+                            <input type="email" id="email" name="entry.979360548" class="form-control"
                                 placeholder="Enter your email address" required>
                         </div>
                         <div class="form-group">
                             <label for="phone" class="form-label">Phone / WhatsApp</label>
-                            <input type="tel" id="phone" name="phone" class="form-control"
+                            <input type="tel" id="phone" name="entry.558186533" class="form-control"
                                 placeholder="Enter your phone number">
                         </div>
                         <div class="form-group">
                             <label for="type" class="form-label">You Are A...</label>
-                            <select id="type" name="type" class="form-control" required>
+                            <select id="type" name="entry.520652274" class="form-control" required>
                                 <option value="" disabled selected>Select from below</option>
                                 <option value="Individual">Individual</option>
                                 <option value="Startup">Startup</option>
@@ -2215,7 +2214,7 @@
                         </div>
                         <div class="form-group">
                             <label for="interest" class="form-label">Interested In...</label>
-                            <select id="interest" name="interest" class="form-control" required>
+                            <select id="interest" name="entry.1206274091" class="form-control" required>
                                 <option value="" disabled selected>Select from below</option>
                                 <option value="Basic">Monthly Package — Basic (₹2,500)</option>
                                 <option value="Standard">Monthly Package — Standard (₹4,500)</option>
@@ -2227,7 +2226,7 @@
                         </div>
                         <div class="form-group">
                             <label for="message" class="form-label">Tell Me About Your Project</label>
-                            <textarea id="message" name="message" class="form-control" rows="5"
+                            <textarea id="message" name="entry.1751798609" class="form-control" rows="5"
                                 placeholder="Briefly describe your project, brand, or what you need help with..."
                                 required></textarea>
                         </div>
@@ -2309,6 +2308,7 @@
             // 4. Mobile Menu
             const hamburger = document.querySelector('.hamburger');
             const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
             const mobileLinks = document.querySelectorAll('.mobile-menu .nav-link');
 
             function toggleMenu() {
@@ -2318,6 +2318,7 @@
             }
 
             hamburger.addEventListener('click', toggleMenu);
+            if (mobileMenuClose) mobileMenuClose.addEventListener('click', toggleMenu);
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (mobileMenu.classList.contains('active')) toggleMenu();
@@ -2428,10 +2429,23 @@
                 });
             });
 
-            // Form submission prevention for demo
-            document.getElementById('contactForm').addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Form submitted successfully! (This is a demo)');
+            // Handle Google Form Submission UX
+            document.getElementById('contactForm').addEventListener('submit', function () {
+                const btn = this.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+
+                // Trigger dynamic success effect
+                btn.classList.add('success-pop');
+                btn.innerHTML = 'Message Sent! &#10003;';
+
+                // Clear form and reset button after delay
+                setTimeout(() => {
+                    this.reset();
+                    setTimeout(() => {
+                        btn.classList.remove('success-pop');
+                        btn.innerHTML = originalText;
+                    }, 4000);
+                }, 500);
             });
 
             // 8. Scattered Gallery Logic
@@ -2515,6 +2529,12 @@
                 }
 
                 scatterImages.forEach((img) => {
+                    // Pop to top on click/tap
+                    img.addEventListener('pointerdown', () => {
+                        highestZ++;
+                        img.style.zIndex = highestZ;
+                    });
+
                     let isDragging = false;
                     let startX, startY;
                     let initialTx, initialTy;
@@ -2610,43 +2630,23 @@
                     cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
                 });
 
-                let hoverTarget = null;
-                const interactables = document.querySelectorAll('a:not(.nav-link):not(.nav-brand):not(footer a):not(.service-link):not(.social-btn):not(.custom-link), button:not(#scatterShuffleBtn):not(.btn-direct):not(.btn-submit), .filter-btn');
+                const interactables = document.querySelectorAll('a, button, .filter-btn, .scatter-img');
                 interactables.forEach(el => {
                     el.addEventListener('mouseenter', () => {
-                        hoverTarget = el;
                         cursorOutlineWrapper.classList.add('hovering');
+                        cursorDot.classList.add('hovering');
                     });
                     el.addEventListener('mouseleave', () => {
-                        hoverTarget = null;
                         cursorOutlineWrapper.classList.remove('hovering');
+                        cursorDot.classList.remove('hovering');
                     });
                 });
 
                 const animateCursor = () => {
-                    if (hoverTarget) {
-                        const rect = hoverTarget.getBoundingClientRect();
-                        const targetX = rect.left + rect.width / 2;
-                        const targetY = rect.top + rect.height / 2;
-
-                        outlineX += (targetX - outlineX) * 0.3;
-                        outlineY += (targetY - outlineY) * 0.3;
-
-                        cursorOutlineWrapper.style.width = `${rect.width + 12}px`;
-                        cursorOutlineWrapper.style.height = `${rect.height + 12}px`;
-
-                        const computedStyle = window.getComputedStyle(hoverTarget);
-                        cursorOutlineWrapper.style.borderRadius = computedStyle.borderRadius;
-                    } else {
-                        let dx = mouseX - outlineX;
-                        let dy = mouseY - outlineY;
-                        outlineX += dx * 0.2;
-                        outlineY += dy * 0.2;
-
-                        cursorOutlineWrapper.style.width = '36px';
-                        cursorOutlineWrapper.style.height = '36px';
-                        cursorOutlineWrapper.style.borderRadius = '50%';
-                    }
+                    let dx = mouseX - outlineX;
+                    let dy = mouseY - outlineY;
+                    outlineX += dx * 0.18;
+                    outlineY += dy * 0.18;
 
                     cursorOutlineWrapper.style.transform = `translate3d(${outlineX}px, ${outlineY}px, 0) translate(-50%, -50%)`;
                     requestAnimationFrame(animateCursor);

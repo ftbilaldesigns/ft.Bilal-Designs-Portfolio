@@ -539,23 +539,23 @@
             }
 
             .hero-photo-layer {
-                height: 65vh;
+                height: 52vh;
                 width: auto;
                 max-width: none;
-                bottom: 0;
+                bottom: 12vh;
             }
 
             .hero-labels-layer {
                 font-size: 14px;
                 left: 32px;
-                bottom: 32px;
+                bottom: 12vh;
             }
 
             .hero-cta-layer {
                 font-size: 10px;
                 padding: 10px 22px;
                 right: 32px;
-                bottom: 32px;
+                bottom: 12vh;
             }
         }
 
@@ -570,16 +570,16 @@
             }
 
             .hero-photo-layer {
-                height: 62vh;
+                height: 48vh;
                 width: auto;
                 max-width: none;
-                bottom: 0;
+                bottom: 14vh;
             }
 
             .hero-labels-layer {
                 font-size: 13px;
                 left: 24px;
-                bottom: 26px;
+                bottom: 14vh;
                 line-height: 1.5;
             }
 
@@ -588,7 +588,7 @@
                 padding: 8px 16px;
                 letter-spacing: 0.12em;
                 right: 24px;
-                bottom: 26px;
+                bottom: 14vh;
             }
         }
 
@@ -1467,6 +1467,24 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+
+            footer {
+                padding: 30px 0 15px 0;
+            }
+
+            .footer-top {
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+
+            .footer-links {
+                gap: 20px;
+            }
+
+            .footer-bottom {
+                padding-top: 15px;
+                margin-top: 15px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1530,14 +1548,30 @@
                 grid-template-columns: 1fr;
             }
 
+            .section-heading {
+                font-size: 26px;
+            }
+
+            footer {
+                padding: 30px 0 15px 0;
+            }
+
             .footer-top {
                 flex-direction: column;
-                text-align: center;
+                gap: 12px;
+                margin-bottom: 20px;
             }
 
             .footer-links {
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 15px;
+                line-height: 1.6;
+            }
+
+            .footer-bottom {
+                padding-top: 15px;
+                margin-top: 15px;
             }
 
             .watermark {

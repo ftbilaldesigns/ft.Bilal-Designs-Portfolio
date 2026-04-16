@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected Works | ft.Bilal Designs</title>
+    <meta name="description" content="Complete portfolio archive of ft.Bilal Designs.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100;0,14..32,200;0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,100;1,14..32,200;1,14..32,300;1,14..32,400;1,14..32,500;1,14..32,600;1,14..32,700;1,14..32,800;1,14..32,900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ================================
+           CSS VARIABLES 
+        ================================ */
+        :root {
+            --font-heading: 'Inter', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --fw-thin: 100;
+            --fw-light: 300;
+            --fw-regular: 400;
+            --fw-medium: 500;
+            --fw-semibold: 600;
+            --fw-bold: 700;
+            --max-width: 1200px;
+            --section-gap: 80px;
+            --transition-theme: background-color 0.45s ease, color 0.45s ease, border-color 0.45s ease;
+        }
+
+        [data-theme="dark"] {
+            --color-bg: #1a1a1a;
+            --color-surface: #111111;
+            --color-border: #2A2A2A;
+            --color-text: #A0A0A0;
+            --color-text-muted: #606060;
+            --color-text-faint: #404040;
+            --color-heading: #F0F0F0;
+            --header-scrolled-bg: rgba(10, 10, 10, 0.93);
+            --header-scrolled-border: #1E1E1E;
+            --mobile-menu-bg: #080808;
+            --footer-bg: #070707;
+            --footer-border: #181818;
+            --lightbox-bg: rgba(10, 10, 10, 0.98);
+        }
+
+        [data-theme="light"] {
+            --color-bg: #f0f0f0;
+            --color-surface: #e8e8e8;
+            --color-border: #d0d0d0;
+            --color-text: #505050;
+            --color-text-muted: #707070;
+            --color-text-faint: #909090;
+            --color-heading: #1a1a1a;
+            --header-scrolled-bg: rgba(240, 240, 240, 0.95);
+            --header-scrolled-border: #d0d0d0;
+            --mobile-menu-bg: #f8f8f8;
+            --footer-bg: #e2e2e2;
+            --footer-border: #d0d0d0;
+            --lightbox-bg: rgba(240, 240, 240, 0.98);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Smooth Load Animation */
+        @keyframes smoothLoad {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.85;
+            font-size: 15px;
+            transition: var(--transition-theme);
+            overflow-x: hidden;
+            opacity: 0;
+            animation: smoothLoad 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+        }
+
+        h1,
+        h2,
+        h3,
+        .brand {
+            font-family: var(--font-heading);
+            color: var(--color-heading);
+            font-weight: var(--fw-bold);
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            transition: color 0.45s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        select {
+            font-family: inherit;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* ================================
+           HEADER / NAV
+        ================================ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: var(--header-scrolled-bg);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--header-scrolled-border);
+            padding: 5px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 5%;
+            max-width: 100%;
+            margin: 0 auto;
+            transition: padding 0.4s ease;
+        }
+
+        header.scrolled .nav-container {
+            padding: 15px 5%;
+        }
+
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 17px;
+            font-weight: var(--fw-semibold);
+            color: var(--color-heading);
+            letter-spacing: -0.01em;
+            transition: color 0.45s ease;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-link {
+            font-size: 11px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+            color: var(--color-text-muted);
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-heading);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--color-heading);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid var(--color-border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: border-color 0.35s ease, background 0.35s ease;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--color-heading);
+        }
+
+        .theme-toggle .icon-sun,
+        .theme-toggle .icon-moon {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            stroke: var(--color-heading);
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-sun {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-moon {
+            opacity: 0;
+            transform: rotate(-90deg) scale(0.6);
+        }
+
+        [data-theme="light"] .theme-toggle .icon-sun {
+            opacity: 0;
+            transform: rotate(90deg) scale(0.6);
+        }
+
+        [data-theme="light"] .theme-toggle .icon-moon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        /* Hamburger / Mobile Menu */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            position: relative;
+            z-index: 1002;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-heading);
+        }
+
+        .hamburger svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--color-heading);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            transition: opacity 0.3s ease;
+        }
+
+        .hamburger .icon-menu {
+            display: block;
+        }
+
+        .hamburger .icon-close {
+            display: none;
+        }
+
+        .hamburger.active .icon-menu {
+            display: none;
+        }
+
+        .hamburger.active .icon-close {
+            display: block;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--mobile-menu-bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu .nav-link {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: var(--fw-light);
+            color: var(--color-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin: 14px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
+        }
+
+        .mobile-menu.active .nav-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu .nav-link::after {
+            display: none;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 22px;
+            right: 5%;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-heading);
+            z-index: 1003;
+        }
+
+        .mobile-menu-close svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--color-heading);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+        }
+
+        /* ================================
+           ARCHIVE HEADER
+        ================================ */
+        .archive-header {
+            padding: 130px 0 20px;
+            text-align: left;
+        }
+
+        .archive-title {
+            font-size: clamp(36px, 4vw, 52px);
+            font-weight: var(--fw-bold);
+            margin-bottom: 5px;
+            letter-spacing: -0.03em;
+        }
+
+        .archive-sub {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            font-weight: var(--fw-regular);
+        }
+
+        /* ================================
+           FILTER SYSTEM
+        ================================ */
+        .filter-section {
+            padding: 20px 0 40px;
+            border-bottom: 1px solid var(--color-border);
+            background: var(--color-bg);
+        }
+
+        .filter-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .filter-row {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-size: 10px;
+            font-weight: var(--fw-semibold);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--color-text-muted);
+            width: 80px;
+            flex-shrink: 0;
+            transition: color 0.45s ease;
+        }
+
+        /* Desktop Filters */
+        .desktop-filters {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            flex-grow: 1;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 12px;
+            color: var(--color-text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 2px 0;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--color-heading);
+            font-weight: var(--fw-medium);
+        }
+
+        .filter-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--color-heading);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .filter-btn.active::after {
+            transform: scaleX(1);
+        }
+
+        /* Unavailable State Highlight */
+        .filter-btn.unavailable {
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        /* Mobile Filters */
+        .mobile-filters {
+            display: none;
+            width: 100%;
+            gap: 15px;
+        }
+
+        .filter-select {
+            flex: 1;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            color: var(--color-heading);
+            font-family: var(--font-body);
+            font-size: 13px;
+            padding: 12px 15px;
+            border-radius: 3px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23808080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .filter-select:focus {
+            border-color: var(--color-heading);
+            box-shadow: 0 0 0 3px rgba(128, 128, 128, 0.07);
+        }
+
+        .filter-select option:disabled {
+            color: var(--color-text-faint);
+        }
+
+        @media (max-width: 768px) {
+            .filter-row {
+                display: none;
+            }
+
+            .mobile-filters {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* ================================
+           MASONRY GRID
+        ================================ */
+        .masonry-container {
+            padding: var(--section-gap) 0;
+        }
+
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            transition: border-color 0.45s ease, transform 0.3s ease, opacity 0.4s ease;
+            opacity: 1;
+            transform: scale(1);
+            background: var(--color-surface);
+        }
+
+        .masonry-item:hover {
+            border-color: var(--color-heading);
+        }
+
+        .masonry-item.hidden {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+            position: absolute;
+            visibility: hidden;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            transition: filter 0.3s ease;
+        }
+
+        .item-info {
+            padding: 15px;
+            border-top: 1px solid var(--color-border);
+            transition: border-color 0.45s ease;
+        }
+
+        .item-client {
+            font-size: 10px;
+            font-weight: var(--fw-semibold);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--color-text-muted);
+            margin-bottom: 4px;
+            transition: color 0.45s ease;
+        }
+
+        .item-title {
+            font-size: 14px;
+            font-weight: var(--fw-medium);
+            color: var(--color-heading);
+            letter-spacing: -0.01em;
+            transition: color 0.45s ease;
+        }
+
+        /* ================================
+           LIGHTBOX
+        ================================ */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--lightbox-bg);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 4px;
+            object-fit: contain;
+            transform: scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox.active .lightbox-img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: var(--color-heading);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-border);
+            border-radius: 50%;
+            transition: border-color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            border-color: var(--color-heading);
+        }
+
+        .lightbox-close svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ================================
+           FOOTER
+        ================================ */
+        footer {
+            background-color: var(--footer-bg);
+            border-top: 1px solid var(--footer-border);
+            padding: 44px 0 20px 0;
+            transition: var(--transition-theme);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: var(--fw-semibold);
+            color: var(--color-heading);
+            letter-spacing: -0.02em;
+            transition: color 0.45s ease;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            font-size: 10px;
+            font-weight: var(--fw-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-text-muted);
+            transition: color 0.45s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-heading);
+        }
+
+        .footer-copy {
+            font-size: 11px;
+            color: var(--color-text-faint);
+            transition: color 0.45s ease;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 30px 0 15px 0;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 20px;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                line-height: 1.6;
+            }
+        }
+
+        /* ================================
+           CUSTOM CURSOR
+        ================================ */
+        @media (pointer: fine) {
+            body {
+                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Cpath d='M8.1,3.4l11.4,6.7c1.4,0.8,1.4,2.9,0,3.7l-11.4,6.7C6.6,21.3,5,20.3,5,18.7V5.3C5,3.6,6.6,2.7,8.1,3.4z' fill='%23666666' stroke='white' stroke-width='1.5' stroke-linejoin='round' transform='rotate(-20 12 12)'/%3E%3C/svg%3E") 8 5, auto !important;
+            }
+
+            a,
+            button,
+            .filter-btn,
+            input,
+            textarea,
+            select {
+                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 24 24'%3E%3Cpath d='M8.1,3.4l11.4,6.7c1.4,0.8,1.4,2.9,0,3.7l-11.4,6.7C6.6,21.3,5,20.3,5,18.7V5.3C5,3.6,6.6,2.7,8.1,3.4z' fill='white' stroke='black' stroke-width='1.5' stroke-linejoin='round' transform='rotate(-20 12 12)'/%3E%3C/svg%3E") 8 5, pointer !important;
+            }
+
+            .masonry-item {
+                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 24 24'%3E%3Cpath d='M8.1,3.4l11.4,6.7c1.4,0.8,1.4,2.9,0,3.7l-11.4,6.7C6.6,21.3,5,20.3,5,18.7V5.3C5,3.6,6.6,2.7,8.1,3.4z' fill='white' stroke='black' stroke-width='1.5' stroke-linejoin='round' transform='rotate(-20 12 12)'/%3E%3C/svg%3E") 8 5, zoom-in !important;
+            }
+
+            .lightbox-close {
+                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 24 24'%3E%3Cpath d='M8.1,3.4l11.4,6.7c1.4,0.8,1.4,2.9,0,3.7l-11.4,6.7C6.6,21.3,5,20.3,5,18.7V5.3C5,3.6,6.6,2.7,8.1,3.4z' fill='white' stroke='black' stroke-width='1.5' stroke-linejoin='round' transform='rotate(-20 12 12)'/%3E%3C/svg%3E") 8 5, pointer !important;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                animation-delay: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">ft.Bilal Designs</a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" stroke-width="1.6">
+                        <circle cx="12" cy="12" r="4" />
+                        <line x1="12" y1="2" x2="12" y2="4" />
+                        <line x1="12" y1="20" x2="12" y2="22" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="2" y1="12" x2="4" y2="12" />
+                        <line x1="20" y1="12" x2="22" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" stroke-width="1.6">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <svg class="icon-menu" viewBox="0 0 24 24">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                    <svg class="icon-close" viewBox="0 0 24 24">
+                        <line x1="5" y1="5" x2="19" y2="19" />
+                        <line x1="19" y1="5" x2="5" y2="19" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">
+            <svg viewBox="0 0 24 24">
+                <line x1="5" y1="5" x2="19" y2="19" />
+                <line x1="19" y1="5" x2="5" y2="19" />
+            </svg>
+        </button>
+        <a href="index.html" class="nav-link delay-1">Home</a>
+        <a href="index.html#contact" class="nav-link delay-2">Contact</a>
+    </div>
+
+    <main>
+        <section class="archive-header">
+            <div class="container">
+                <h1 class="archive-title">Selected Works</h1>
+                <p class="archive-sub">Filter by sector, deliverable type, or client.</p>
+            </div>
+        </section>
+
+        <section class="filter-section">
+            <div class="container filter-grid">
+
+                <div class="filter-row">
+                    <span class="filter-label">Sector</span>
+                    <div class="desktop-filters" id="filter-sector">
+                        <button class="filter-btn active" data-filter="all">All Sectors</button>
+                        <button class="filter-btn" data-filter="food">Food</button>
+                        <button class="filter-btn" data-filter="education">Education</button>
+                        <button class="filter-btn" data-filter="jewellery">Jewellery</button>
+                        <button class="filter-btn" data-filter="real-estate">Real Estate</button>
+                        <button class="filter-btn" data-filter="products">Products</button>
+                        <button class="filter-btn" data-filter="events">Events</button>
+                        <button class="filter-btn" data-filter="others">Others</button>
+                    </div>
+                </div>
+
+                <div class="filter-row">
+                    <span class="filter-label">Type</span>
+                    <div class="desktop-filters" id="filter-type">
+                        <button class="filter-btn active" data-filter="all">All Types</button>
+                        <button class="filter-btn" data-filter="social-media-poster">Social Media Poster</button>
+                        <button class="filter-btn" data-filter="instagram-story">Instagram Story</button>
+                        <button class="filter-btn" data-filter="brochure">Brochure</button>
+                        <button class="filter-btn" data-filter="menu-cards">Menu Cards</button>
+                        <button class="filter-btn" data-filter="business-card">Business Card</button>
+                        <button class="filter-btn" data-filter="brandbook">Brandbook</button>
+                        <button class="filter-btn" data-filter="package-design">Package Design</button>
+                        <button class="filter-btn" data-filter="others">Others</button>
+                    </div>
+                </div>
+
+                <div class="filter-row">
+                    <span class="filter-label">Client</span>
+                    <div class="desktop-filters" id="filter-client">
+                        <button class="filter-btn active" data-filter="all">All Clients</button>
+                        <button class="filter-btn" data-filter="brand-a">Brand A</button>
+                        <button class="filter-btn" data-filter="tech-corp">Tech Corp</button>
+                        <button class="filter-btn" data-filter="elevate-sports">Elevate Sports</button>
+                    </div>
+                </div>
+
+                <div class="mobile-filters">
+                    <select class="filter-select" id="mob-filter-sector">
+                        <option value="all">All Sectors</option>
+                        <option value="food">Food</option>
+                        <option value="education">Education</option>
+                        <option value="jewellery">Jewellery</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="products">Products</option>
+                        <option value="events">Events</option>
+                        <option value="others">Others</option>
+                    </select>
+                    <select class="filter-select" id="mob-filter-type">
+                        <option value="all">All Types</option>
+                        <option value="social-media-poster">Social Media Poster</option>
+                        <option value="instagram-story">Instagram Story</option>
+                        <option value="brochure">Brochure</option>
+                        <option value="menu-cards">Menu Cards</option>
+                        <option value="business-card">Business Card</option>
+                        <option value="brandbook">Brandbook</option>
+                        <option value="package-design">Package Design</option>
+                        <option value="others">Others</option>
+                    </select>
+                    <select class="filter-select" id="mob-filter-client">
+                        <option value="all">All Clients</option>
+                        <option value="brand-a">Brand A</option>
+                        <option value="tech-corp">Tech Corp</option>
+                        <option value="elevate-sports">Elevate Sports</option>
+                    </select>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="masonry-container">
+            <div class="container">
+                <div class="masonry-grid" id="worksGrid">
+
+                    <div class="masonry-item" data-client="brand-a" data-type="package-design others"
+                        data-sector="products">
+                        <img src="work1.png" alt="Perfume Packaging" loading="lazy">
+                        <div class="item-info">
+                            <div class="item-client">Brand A</div>
+                            <div class="item-title">Product Packaging</div>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item" data-client="tech-corp" data-type="brandbook social-media-poster"
+                        data-sector="education products">
+                        <img src="work2.png" alt="Tech Corp Socials" loading="lazy">
+                        <div class="item-info">
+                            <div class="item-client">Tech Corp</div>
+                            <div class="item-title">IR Scanner Promo</div>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item" data-client="brand-a" data-type="social-media-poster instagram-story"
+                        data-sector="jewellery">
+                        <img src="work3.png" alt="Jewellery Social" loading="lazy">
+                        <div class="item-info">
+                            <div class="item-client">Brand A</div>
+                            <div class="item-title">High-End Campaign</div>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item" data-client="elevate-sports" data-type="brochure others"
+                        data-sector="events others">
+                        <img src="work4.png" alt="Sports Logo" loading="lazy">
+                        <div class="item-info">
+                            <div class="item-client">Elevate Sports</div>
+                            <div class="item-title">Cricket Team Identity</div>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item" data-client="tech-corp" data-type="menu-cards business-card"
+                        data-sector="food">
+                        <img src="work5.png" alt="Food Menu" loading="lazy">
+                        <div class="item-info">
+                            <div class="item-client">Tech Corp</div>
+                            <div class="item-title">Cafe Branding</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close fullscreen">
+            <svg viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <img src="" alt="Fullscreen Work" class="lightbox-img" id="lightboxImg">
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <a href="index.html" class="footer-brand">ft.Bilal Designs</a>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2026 ft.Bilal Designs. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Logic
+            const html = document.documentElement;
+            const themeToggle = document.getElementById('themeToggle');
+            const savedTheme = localStorage.getItem('ftbilal-theme') || 'dark';
+            html.setAttribute('data-theme', savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const current = html.getAttribute('data-theme');
+                const next = current === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', next);
+                localStorage.setItem('ftbilal-theme', next);
+            });
+
+            // Header Scroll Logic
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+            });
+
+            // Mobile Menu Logic
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+            function toggleMenu() {
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            }
+
+            if (hamburger) hamburger.addEventListener('click', toggleMenu);
+            if (mobileMenuClose) mobileMenuClose.addEventListener('click', toggleMenu);
+
+            // Filtering Logic
+            const items = document.querySelectorAll('.masonry-item');
+            const filterTypes = ['sector', 'type', 'client'];
+
+            let activeFilters = {
+                sector: 'all',
+                type: 'all',
+                client: 'all'
+            };
+
+            function syncUI() {
+                filterTypes.forEach(type => {
+                    // Sync Desktop
+                    const desktopGroup = document.getElementById(`filter-${type}`);
+                    desktopGroup.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.filter === activeFilters[type]);
+                    });
+                    // Sync Mobile
+                    document.getElementById(`mob-filter-${type}`).value = activeFilters[type];
+                });
+            }
+
+            function applyFilters() {
+                items.forEach(item => {
+                    const itemClients = item.dataset.client.split(' ');
+                    const itemTypes = item.dataset.type.split(' ');
+                    const itemSectors = item.dataset.sector.split(' ');
+
+                    const matchClient = activeFilters.client === 'all' || itemClients.includes(activeFilters.client);
+                    const matchType = activeFilters.type === 'all' || itemTypes.includes(activeFilters.type);
+                    const matchSector = activeFilters.sector === 'all' || itemSectors.includes(activeFilters.sector);
+
+                    if (matchClient && matchType && matchSector) {
+                        // Restore display and position first
+                        item.style.display = '';
+                        item.style.position = 'relative';
+                        // Small delay allows the browser to register the display change before animating opacity
+                        setTimeout(() => {
+                            item.classList.remove('hidden');
+                        }, 10);
+                    } else {
+                        // Fade out
+                        item.classList.add('hidden');
+                        // Wait for CSS transition (300ms), then remove from document flow
+                        setTimeout(() => {
+                            if (item.classList.contains('hidden')) {
+                                item.style.position = 'absolute';
+                                item.style.display = 'none';
+                            }
+                        }, 300);
+                    }
+                });
+
+                updateAvailableOptions();
+            }
+
+            function updateAvailableOptions() {
+                // Determine active axis
+                let activeAxis = null;
+                if (activeFilters.sector !== 'all') activeAxis = 'sector';
+                else if (activeFilters.type !== 'all') activeAxis = 'type';
+                else if (activeFilters.client !== 'all') activeAxis = 'client';
+
+                // If everything is reset, enable all
+                if (!activeAxis) {
+                    document.querySelectorAll('.filter-btn, .filter-select option').forEach(el => {
+                        el.classList.remove('unavailable');
+                        el.disabled = false;
+                    });
+                    return;
+                }
+
+                // Gather available attributes from currently visible items
+                let validSectors = new Set(['all']);
+                let validTypes = new Set(['all']);
+                let validClients = new Set(['all']);
+
+                items.forEach(item => {
+                    if (!item.classList.contains('hidden')) {
+                        item.dataset.sector.split(' ').forEach(v => validSectors.add(v));
+                        item.dataset.type.split(' ').forEach(v => validTypes.add(v));
+                        item.dataset.client.split(' ').forEach(v => validClients.add(v));
+                    }
+                });
+
+                // Update Sector buttons/options
+                document.querySelectorAll('#filter-sector .filter-btn').forEach(btn => {
+                    if (activeAxis !== 'sector' && !validSectors.has(btn.dataset.filter)) btn.classList.add('unavailable');
+                    else btn.classList.remove('unavailable');
+                });
+                document.querySelectorAll('#mob-filter-sector option').forEach(opt => {
+                    opt.disabled = (activeAxis !== 'sector' && !validSectors.has(opt.value));
+                });
+
+                // Update Type buttons/options
+                document.querySelectorAll('#filter-type .filter-btn').forEach(btn => {
+                    if (activeAxis !== 'type' && !validTypes.has(btn.dataset.filter)) btn.classList.add('unavailable');
+                    else btn.classList.remove('unavailable');
+                });
+                document.querySelectorAll('#mob-filter-type option').forEach(opt => {
+                    opt.disabled = (activeAxis !== 'type' && !validTypes.has(opt.value));
+                });
+
+                // Update Client buttons/options
+                document.querySelectorAll('#filter-client .filter-btn').forEach(btn => {
+                    if (activeAxis !== 'client' && !validClients.has(btn.dataset.filter)) btn.classList.add('unavailable');
+                    else btn.classList.remove('unavailable');
+                });
+                document.querySelectorAll('#mob-filter-client option').forEach(opt => {
+                    opt.disabled = (activeAxis !== 'client' && !validClients.has(opt.value));
+                });
+            }
+
+            function handleFilterChange(clickedType, filterValue) {
+                // Set the clicked filter, reset the others
+                filterTypes.forEach(type => {
+                    if (type === clickedType) {
+                        activeFilters[type] = filterValue;
+                    } else {
+                        activeFilters[type] = 'all';
+                    }
+                });
+
+                syncUI();
+                applyFilters();
+            }
+
+            // Desktop Filter Events
+            document.querySelectorAll('.desktop-filters').forEach(group => {
+                group.addEventListener('click', (e) => {
+                    if (!e.target.classList.contains('filter-btn') || e.target.classList.contains('unavailable')) return;
+
+                    const filterType = group.id.replace('filter-', '');
+                    const filterValue = e.target.dataset.filter;
+                    handleFilterChange(filterType, filterValue);
+                });
+            });
+
+            // Mobile Filter Events
+            document.querySelectorAll('.filter-select').forEach(select => {
+                select.addEventListener('change', (e) => {
+                    const filterType = select.id.replace('mob-filter-', '');
+                    const filterValue = e.target.value;
+                    handleFilterChange(filterType, filterValue);
+                });
+            });
+
+            // Initial UI sync to ensure accurate disabled states on load
+            applyFilters();
+
+            // Lightbox Logic
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxClose = document.getElementById('lightboxClose');
+
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imgSrc = item.querySelector('img').src;
+                    lightboxImg.src = imgSrc;
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => { lightboxImg.src = ''; }, 300);
+            };
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+            });
+        });
+    </script>
+</body>
+
+</html>

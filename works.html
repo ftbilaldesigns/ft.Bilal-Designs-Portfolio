@@ -554,7 +554,7 @@
         }
 
         /* ================================
-           MASONRY GRID
+           MASONRY GRID (UPDATED DESIGN)
         ================================ */
         .masonry-container {
             padding: var(--section-gap) 0;
@@ -578,19 +578,17 @@
         }
 
         .masonry-item {
+            position: relative;
             break-inside: avoid;
             margin-bottom: 20px;
-            border-radius: 4px;
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid var(--color-border);
-            transition: border-color 0.45s ease, transform 0.3s ease, opacity 0.4s ease;
+            border: 1px solid transparent;
+            transition: transform 0.4s ease, opacity 0.4s ease;
             opacity: 1;
             transform: scale(1);
             background: var(--color-surface);
-        }
-
-        .masonry-item:hover {
-            border-color: var(--color-heading);
+            cursor: zoom-in;
         }
 
         .masonry-item.hidden {
@@ -604,13 +602,49 @@
         .masonry-item img {
             width: 100%;
             display: block;
-            transition: filter 0.3s ease;
+            transition: transform 0.5s ease;
         }
 
-        .item-info {
-            padding: 15px;
-            border-top: 1px solid var(--color-border);
-            transition: border-color 0.45s ease;
+        .masonry-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Hover Overlay & Text Elements */
+        .item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 65%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .item-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 24px;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 2;
+        }
+
+        .masonry-item:hover .item-overlay {
+            opacity: 1;
+        }
+
+        .masonry-item:hover .item-text {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .item-client {
@@ -618,17 +652,14 @@
             font-weight: var(--fw-semibold);
             text-transform: uppercase;
             letter-spacing: 0.18em;
-            color: var(--color-text-muted);
-            margin-bottom: 4px;
-            transition: color 0.45s ease;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .item-title {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: var(--fw-medium);
-            color: var(--color-heading);
+            color: #ffffff;
             letter-spacing: -0.01em;
-            transition: color 0.45s ease;
         }
 
         /* ================================
@@ -832,7 +863,6 @@
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                     </svg>
                 </button>
-
                 <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
                     <svg class="icon-menu" viewBox="0 0 24 24">
                         <line x1="3" y1="6" x2="21" y2="6" />
@@ -876,7 +906,6 @@
                         <button class="filter-btn active" data-filter="all">All Sectors</button>
                         <button class="filter-btn" data-filter="food">Food</button>
                         <button class="filter-btn" data-filter="education">Education</button>
-                        <button class="filter-btn" data-filter="jewellery">Jewellery</button>
                         <button class="filter-btn" data-filter="real-estate">Real Estate</button>
                         <button class="filter-btn" data-filter="products">Products</button>
                         <button class="filter-btn" data-filter="events">Events</button>
@@ -893,7 +922,6 @@
                         <button class="filter-btn" data-filter="brochure">Brochure</button>
                         <button class="filter-btn" data-filter="menu-cards">Menu Cards</button>
                         <button class="filter-btn" data-filter="business-card">Business Card</button>
-                        <button class="filter-btn" data-filter="brandbook">Brandbook</button>
                         <button class="filter-btn" data-filter="package-design">Package Design</button>
                         <button class="filter-btn" data-filter="others">Others</button>
                     </div>
@@ -903,9 +931,13 @@
                     <span class="filter-label">Client</span>
                     <div class="desktop-filters" id="filter-client">
                         <button class="filter-btn active" data-filter="all">All Clients</button>
-                        <button class="filter-btn" data-filter="brand-a">Brand A</button>
-                        <button class="filter-btn" data-filter="tech-corp">Tech Corp</button>
-                        <button class="filter-btn" data-filter="elevate-sports">Elevate Sports</button>
+                        <button class="filter-btn" data-filter="augma">Augma Residency</button>
+                        <button class="filter-btn" data-filter="coromandal">Coromandal Coastal</button>
+                        <button class="filter-btn" data-filter="devoyage">De Voyage</button>
+                        <button class="filter-btn" data-filter="marby">Marby Chocolates</button>
+                        <button class="filter-btn" data-filter="turnup">TurnUp</button>
+                        <button class="filter-btn" data-filter="x-emirates">X Emirates</button>
+                        <button class="filter-btn" data-filter="others">Others</button>
                     </div>
                 </div>
 
@@ -914,7 +946,6 @@
                         <option value="all">All Sectors</option>
                         <option value="food">Food</option>
                         <option value="education">Education</option>
-                        <option value="jewellery">Jewellery</option>
                         <option value="real-estate">Real Estate</option>
                         <option value="products">Products</option>
                         <option value="events">Events</option>
@@ -927,15 +958,18 @@
                         <option value="brochure">Brochure</option>
                         <option value="menu-cards">Menu Cards</option>
                         <option value="business-card">Business Card</option>
-                        <option value="brandbook">Brandbook</option>
                         <option value="package-design">Package Design</option>
                         <option value="others">Others</option>
                     </select>
                     <select class="filter-select" id="mob-filter-client">
                         <option value="all">All Clients</option>
-                        <option value="brand-a">Brand A</option>
-                        <option value="tech-corp">Tech Corp</option>
-                        <option value="elevate-sports">Elevate Sports</option>
+                        <option value="augma">Augma Residency</option>
+                        <option value="coromandal">Coromandal Coastal</option>
+                        <option value="devoyage">De Voyage</option>
+                        <option value="marby">Marby Chocolates</option>
+                        <option value="turnup">TurnUp</option>
+                        <option value="x-emirates">X Emirates</option>
+                        <option value="others">Others</option>
                     </select>
                 </div>
 
@@ -946,48 +980,339 @@
             <div class="container">
                 <div class="masonry-grid" id="worksGrid">
 
-                    <div class="masonry-item" data-client="brand-a" data-type="package-design others"
-                        data-sector="products">
-                        <img src="work1.png" alt="Perfume Packaging" loading="lazy">
-                        <div class="item-info">
-                            <div class="item-client">Brand A</div>
-                            <div class="item-title">Product Packaging</div>
+                    <div class="masonry-item" data-client="augma" data-type="social-media-poster"
+                        data-sector="real-estate">
+                        <img src="augma-social-1.png" alt="Augma Residency Poster" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Augma Residency</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="augma" data-type="instagram-story" data-sector="real-estate">
+                        <img src="augma-social-2.png" alt="Augma Residency Story" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Augma Residency</div>
+                            <div class="item-title">Instagram Story</div>
                         </div>
                     </div>
 
-                    <div class="masonry-item" data-client="tech-corp" data-type="brandbook social-media-poster"
-                        data-sector="education products">
-                        <img src="work2.png" alt="Tech Corp Socials" loading="lazy">
-                        <div class="item-info">
-                            <div class="item-client">Tech Corp</div>
-                            <div class="item-title">IR Scanner Promo</div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-client="brand-a" data-type="social-media-poster instagram-story"
-                        data-sector="jewellery">
-                        <img src="work3.png" alt="Jewellery Social" loading="lazy">
-                        <div class="item-info">
-                            <div class="item-client">Brand A</div>
-                            <div class="item-title">High-End Campaign</div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-client="elevate-sports" data-type="brochure others"
-                        data-sector="events others">
-                        <img src="work4.png" alt="Sports Logo" loading="lazy">
-                        <div class="item-info">
-                            <div class="item-client">Elevate Sports</div>
-                            <div class="item-title">Cricket Team Identity</div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-client="tech-corp" data-type="menu-cards business-card"
+                    <div class="masonry-item" data-client="coromandal" data-type="social-media-poster"
                         data-sector="food">
-                        <img src="work5.png" alt="Food Menu" loading="lazy">
-                        <div class="item-info">
-                            <div class="item-client">Tech Corp</div>
-                            <div class="item-title">Cafe Branding</div>
+                        <img src="coastal-social-1.png" alt="Coromandal Coastal Post" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Coromandal Coastal</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="coromandal" data-type="social-media-poster"
+                        data-sector="food">
+                        <img src="coastal-social-2.png" alt="Coromandal Coastal Post" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Coromandal Coastal</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="coromandal" data-type="menu-cards" data-sector="food">
+                        <img src="coastal-social-3.png" alt="Coromandal Coastal Menu" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Coromandal Coastal</div>
+                            <div class="item-title">Menu Card</div>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item" data-client="devoyage" data-type="social-media-poster"
+                        data-sector="others">
+                        <img src="devoyage-social-1.png" alt="De Voyage Design" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">De Voyage</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="devoyage" data-type="instagram-story" data-sector="events">
+                        <img src="devoyage-social-2.png" alt="De Voyage Design" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">De Voyage</div>
+                            <div class="item-title">Event Story</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="devoyage" data-type="social-media-poster"
+                        data-sector="others">
+                        <img src="devoyage-social-3.png" alt="De Voyage Design" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">De Voyage</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item" data-client="marby" data-type="social-media-poster"
+                        data-sector="food products">
+                        <img src="marby-social-1.png" alt="Marby Chocolates Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Marby Chocolates</div>
+                            <div class="item-title">Product Campaign</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="marby" data-type="instagram-story"
+                        data-sector="food products">
+                        <img src="marby-social-2.png" alt="Marby Chocolates Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Marby Chocolates</div>
+                            <div class="item-title">Instagram Story</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="marby" data-type="package-design"
+                        data-sector="food products">
+                        <img src="marby-social-3.png" alt="Marby Chocolates Package" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Marby Chocolates</div>
+                            <div class="item-title">Package Design</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="marby" data-type="social-media-poster"
+                        data-sector="food products">
+                        <img src="marby-social-4.png" alt="Marby Chocolates Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Marby Chocolates</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="marby" data-type="social-media-poster"
+                        data-sector="food products">
+                        <img src="marby-social-5.png" alt="Marby Chocolates Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Marby Chocolates</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="marby" data-type="instagram-story"
+                        data-sector="food products">
+                        <img src="marby-social-6.png" alt="Marby Chocolates Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Marby Chocolates</div>
+                            <div class="item-title">Instagram Story</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="marby" data-type="social-media-poster"
+                        data-sector="food products">
+                        <img src="marby-social-7.png" alt="Marby Chocolates Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Marby Chocolates</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="marby" data-type="social-media-poster"
+                        data-sector="food products">
+                        <img src="marby-social-8.png" alt="Marby Chocolates Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Marby Chocolates</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="marby" data-type="package-design"
+                        data-sector="food products">
+                        <img src="marby-social-9.png" alt="Marby Chocolates Package" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Marby Chocolates</div>
+                            <div class="item-title">Package Design</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="marby" data-type="social-media-poster"
+                        data-sector="food products">
+                        <img src="marby-social-10.png" alt="Marby Chocolates Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Marby Chocolates</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item" data-client="turnup" data-type="social-media-poster"
+                        data-sector="events education">
+                        <img src="turnup-social-1.png" alt="TurnUp Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">TurnUp</div>
+                            <div class="item-title">Event Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="turnup" data-type="instagram-story"
+                        data-sector="events education">
+                        <img src="turnup-social-2.png" alt="TurnUp Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">TurnUp</div>
+                            <div class="item-title">Instagram Story</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="turnup" data-type="social-media-poster"
+                        data-sector="events education">
+                        <img src="turnup-social-3.png" alt="TurnUp Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">TurnUp</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="turnup" data-type="social-media-poster"
+                        data-sector="events education">
+                        <img src="turnup-social-4.png" alt="TurnUp Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">TurnUp</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item" data-client="x-emirates" data-type="social-media-poster"
+                        data-sector="real-estate others">
+                        <img src="xemirates-social-1.png" alt="X Emirates Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">X Emirates</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="x-emirates" data-type="social-media-poster"
+                        data-sector="real-estate others">
+                        <img src="xemirates-social-2.png" alt="X Emirates Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">X Emirates</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="x-emirates" data-type="brochure"
+                        data-sector="real-estate others">
+                        <img src="xemirates-social-3.png" alt="X Emirates Promo" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">X Emirates</div>
+                            <div class="item-title">Brochure Design</div>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster"
+                        data-sector="products">
+                        <img src="other-social-1.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Product Visual</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="instagram-story" data-sector="events">
+                        <img src="other-social-2.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Event Story</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster"
+                        data-sector="education">
+                        <img src="other-social-3.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Educational Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="business-card" data-sector="others">
+                        <img src="other-social-4.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Business Card</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="food">
+                        <img src="other-social-5.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Food Promotion</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="others">
+                        <img src="other-social-6.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="instagram-story" data-sector="products">
+                        <img src="other-social-7.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Product Story</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="events">
+                        <img src="other-social-8.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Event Promotion</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="brochure" data-sector="education">
+                        <img src="other-merch-1.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Brochure Design</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="others">
+                        <img src="other-print-1.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Melanche'26</div>
+                            <div class="item-title">Volunteer Tag</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="package-design" data-sector="products">
+                        <img src="other-print-2.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Melanche'26</div>
+                            <div class="item-title">Volunteer Tag</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster"
+                        data-sector="real-estate">
+                        <img src="other-print-3.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Melanche'26</div>
+                            <div class="item-title">Volunteer Tag</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="menu-cards" data-sector="food">
+                        <img src="other-print-4.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Melanche'26</div>
+                            <div class="item-title">Volunteer Tag</div>
                         </div>
                     </div>
 
@@ -1090,17 +1415,13 @@
                     const matchSector = activeFilters.sector === 'all' || itemSectors.includes(activeFilters.sector);
 
                     if (matchClient && matchType && matchSector) {
-                        // Restore display and position first
                         item.style.display = '';
                         item.style.position = 'relative';
-                        // Small delay allows the browser to register the display change before animating opacity
                         setTimeout(() => {
                             item.classList.remove('hidden');
                         }, 10);
                     } else {
-                        // Fade out
                         item.classList.add('hidden');
-                        // Wait for CSS transition (300ms), then remove from document flow
                         setTimeout(() => {
                             if (item.classList.contains('hidden')) {
                                 item.style.position = 'absolute';
@@ -1114,13 +1435,11 @@
             }
 
             function updateAvailableOptions() {
-                // Determine active axis
                 let activeAxis = null;
                 if (activeFilters.sector !== 'all') activeAxis = 'sector';
                 else if (activeFilters.type !== 'all') activeAxis = 'type';
                 else if (activeFilters.client !== 'all') activeAxis = 'client';
 
-                // If everything is reset, enable all
                 if (!activeAxis) {
                     document.querySelectorAll('.filter-btn, .filter-select option').forEach(el => {
                         el.classList.remove('unavailable');
@@ -1129,7 +1448,6 @@
                     return;
                 }
 
-                // Gather available attributes from currently visible items
                 let validSectors = new Set(['all']);
                 let validTypes = new Set(['all']);
                 let validClients = new Set(['all']);
@@ -1142,7 +1460,6 @@
                     }
                 });
 
-                // Update Sector buttons/options
                 document.querySelectorAll('#filter-sector .filter-btn').forEach(btn => {
                     if (activeAxis !== 'sector' && !validSectors.has(btn.dataset.filter)) btn.classList.add('unavailable');
                     else btn.classList.remove('unavailable');
@@ -1151,7 +1468,6 @@
                     opt.disabled = (activeAxis !== 'sector' && !validSectors.has(opt.value));
                 });
 
-                // Update Type buttons/options
                 document.querySelectorAll('#filter-type .filter-btn').forEach(btn => {
                     if (activeAxis !== 'type' && !validTypes.has(btn.dataset.filter)) btn.classList.add('unavailable');
                     else btn.classList.remove('unavailable');
@@ -1160,7 +1476,6 @@
                     opt.disabled = (activeAxis !== 'type' && !validTypes.has(opt.value));
                 });
 
-                // Update Client buttons/options
                 document.querySelectorAll('#filter-client .filter-btn').forEach(btn => {
                     if (activeAxis !== 'client' && !validClients.has(btn.dataset.filter)) btn.classList.add('unavailable');
                     else btn.classList.remove('unavailable');
@@ -1171,7 +1486,6 @@
             }
 
             function handleFilterChange(clickedType, filterValue) {
-                // Set the clicked filter, reset the others
                 filterTypes.forEach(type => {
                     if (type === clickedType) {
                         activeFilters[type] = filterValue;
@@ -1184,7 +1498,6 @@
                 applyFilters();
             }
 
-            // Desktop Filter Events
             document.querySelectorAll('.desktop-filters').forEach(group => {
                 group.addEventListener('click', (e) => {
                     if (!e.target.classList.contains('filter-btn') || e.target.classList.contains('unavailable')) return;
@@ -1195,7 +1508,6 @@
                 });
             });
 
-            // Mobile Filter Events
             document.querySelectorAll('.filter-select').forEach(select => {
                 select.addEventListener('change', (e) => {
                     const filterType = select.id.replace('mob-filter-', '');
@@ -1204,7 +1516,6 @@
                 });
             });
 
-            // Initial UI sync to ensure accurate disabled states on load
             applyFilters();
 
             // Lightbox Logic

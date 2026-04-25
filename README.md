@@ -6,13 +6,20 @@ Personal freelance graphic design portfolio website for Muhammed Bilal — Keral
 
 ## About
 
-A static portfolio built with HTML, CSS, and JavaScript. Showcases my services, selected works,
-monthly design packages, and a contact section for client enquiries.
+A portfolio website built with HTML, CSS, and JavaScript — featuring dynamic elements like a
+shuffleable scattered works gallery. Showcases my services, selected works, monthly design
+packages, and a contact section for client enquiries.
 
-## Setup
+## Built With
 
-Clone the repo and open `index.html` in your browser. No installs required.
+- HTML, CSS, JavaScript
+- Deployed on Vercel
 
-```bash
-git clone https://github.com/your-username/ft.bilal.designs.git
-```
+## Contact
+
+📧 ft.bilal.designs@gmail.com  
+📍 Kerala, India
+
+---
+
+© 2026 ft.Bilal Designs. All rights reserved.

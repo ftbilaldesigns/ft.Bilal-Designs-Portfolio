@@ -688,12 +688,12 @@
         }
 
         .lightbox-img {
-            max-width: 90%;
-            max-height: 90vh;
+            max-width: 85vw;
+            max-height: 85vh;
             border-radius: 4px;
             object-fit: contain;
             transform: scale(0.95);
-            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.25s ease;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
 
@@ -1585,67 +1585,79 @@
 
             applyFilters();
 
-            // Lightbox Logic
+            // ── LIGHTBOX ─────────────────────────────────────────────
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
             const lightboxClose = document.getElementById('lightboxClose');
             const lightboxPrev = document.getElementById('lightboxPrev');
             const lightboxNext = document.getElementById('lightboxNext');
 
-            let visibleItems = [];
-            let currentLightboxIndex = 0;
+            let galleryList = [];   // srcs of currently-visible items
+            let galleryIndex = 0;  // which one is open
 
-            items.forEach((item) => {
+            // Build gallery from whichever items are currently visible
+            function buildGallery() {
+                galleryList = [];
+                document.querySelectorAll('.masonry-item').forEach(item => {
+                    if (!item.classList.contains('hidden') && item.style.display !== 'none') {
+                        galleryList.push(item.querySelector('img').getAttribute('src'));
+                    }
+                });
+            }
+
+            // Show image at index with fade transition
+            function showAt(index) {
+                galleryIndex = ((index % galleryList.length) + galleryList.length) % galleryList.length;
+                lightboxImg.style.opacity = '0';
+                setTimeout(() => {
+                    lightboxImg.src = galleryList[galleryIndex];
+                    lightboxImg.style.opacity = '1';
+                }, 180);
+            }
+
+            // Open lightbox when a work is clicked
+            document.querySelectorAll('.masonry-item').forEach(item => {
                 item.addEventListener('click', () => {
-                    visibleItems = Array.from(items).filter(i => !i.classList.contains('hidden'));
-                    currentLightboxIndex = visibleItems.indexOf(item);
-                    if (currentLightboxIndex === -1) currentLightboxIndex = 0;
+                    buildGallery();
+                    const clickedSrc = item.querySelector('img').getAttribute('src');
+                    galleryIndex = galleryList.indexOf(clickedSrc);
+                    if (galleryIndex === -1) galleryIndex = 0;
 
-                    const imgSrc = item.querySelector('img').src;
-                    lightboxImg.src = imgSrc;
+                    lightboxImg.style.opacity = '0';
+                    lightboxImg.src = galleryList[galleryIndex];
                     lightbox.classList.add('active');
                     document.body.style.overflow = 'hidden';
+                    setTimeout(() => { lightboxImg.style.opacity = '1'; }, 50);
                 });
             });
 
-            const updateLightboxImage = () => {
-                if (visibleItems.length === 0) return;
-                const imgSrc = visibleItems[currentLightboxIndex].querySelector('img').src;
-                lightboxImg.src = imgSrc;
-            };
+            lightboxPrev.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showAt(galleryIndex - 1);
+            });
 
-            const prevLightbox = (e) => {
-                if (e) e.stopPropagation();
-                if (visibleItems.length === 0) return;
-                currentLightboxIndex = (currentLightboxIndex - 1 + visibleItems.length) % visibleItems.length;
-                updateLightboxImage();
-            };
-
-            const nextLightbox = (e) => {
-                if (e) e.stopPropagation();
-                if (visibleItems.length === 0) return;
-                currentLightboxIndex = (currentLightboxIndex + 1) % visibleItems.length;
-                updateLightboxImage();
-            };
-
-            lightboxPrev.addEventListener('click', prevLightbox);
-            lightboxNext.addEventListener('click', nextLightbox);
+            lightboxNext.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showAt(galleryIndex + 1);
+            });
 
             const closeLightbox = () => {
                 lightbox.classList.remove('active');
                 document.body.style.overflow = '';
-                setTimeout(() => { lightboxImg.src = ''; }, 300);
+                setTimeout(() => { lightboxImg.src = ''; lightboxImg.style.opacity = '0'; }, 300);
             };
 
             lightboxClose.addEventListener('click', closeLightbox);
+
             lightbox.addEventListener('click', (e) => {
                 if (e.target === lightbox) closeLightbox();
             });
+
             document.addEventListener('keydown', (e) => {
                 if (!lightbox.classList.contains('active')) return;
                 if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') prevLightbox();
-                if (e.key === 'ArrowRight') nextLightbox();
+                if (e.key === 'ArrowLeft') showAt(galleryIndex - 1);
+                if (e.key === 'ArrowRight') showAt(galleryIndex + 1);
             });
         });
     </script>

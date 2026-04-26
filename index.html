@@ -563,6 +563,7 @@
 
         [data-theme="light"] .hero-name-layer {
             color: #1a1a1a;
+            mix-blend-mode: normal;
         }
 
         .hero-photo-layer {
@@ -2493,7 +2494,7 @@
 
                 function parallax() {
                     const scrollY = window.scrollY;
-                    if (scrollY < window.innerHeight && isLoaded) {
+                    if (scrollY < window.innerHeight) {
                         if (heroPhoto) {
                             const fadeProgress = scrollY / window.innerHeight;
                             heroPhoto.style.transform = `translateX(-50%) translateY(${scrollY * 0.4}px)`;
@@ -2502,21 +2503,16 @@
                         }
                         if (heroName) {
                             heroName.style.transform = `translate(-50%, calc(-50% - ${scrollY * 0.25}px))`;
-                            heroName.style.opacity = 0.95 - (scrollY / window.innerHeight) * 1.8;
+                            heroName.style.opacity = Math.max(0, 0.95 - (scrollY / window.innerHeight) * 1.8);
                         }
                         if (heroLabels) {
                             heroLabels.style.transform = `translateY(${scrollY * -0.15}px)`;
-                            heroLabels.style.opacity = 1 - (scrollY / window.innerHeight) * 2;
+                            heroLabels.style.opacity = Math.max(0, 1 - (scrollY / window.innerHeight) * 2);
                         }
                         if (heroCta) {
                             heroCta.style.transform = `translateY(${scrollY * -0.15}px)`;
-                            heroCta.style.opacity = 1 - (scrollY / window.innerHeight) * 2;
+                            heroCta.style.opacity = Math.max(0, 1 - (scrollY / window.innerHeight) * 2);
                         }
-                    } else if (scrollY === 0 && isLoaded) {
-                        if (heroPhoto) { heroPhoto.style.transform = 'translateX(-50%) translateY(0)'; heroPhoto.style.filter = 'grayscale(100%)'; heroPhoto.style.opacity = '1'; }
-                        if (heroName) { heroName.style.transform = 'translate(-50%, -50%)'; heroName.style.opacity = '1'; }
-                        if (heroLabels) { heroLabels.style.transform = ''; heroLabels.style.opacity = '1'; }
-                        if (heroCta) { heroCta.style.transform = ''; heroCta.style.opacity = '1'; }
                     }
                     requestAnimationFrame(parallax);
                 }

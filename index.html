@@ -563,7 +563,6 @@
 
         [data-theme="light"] .hero-name-layer {
             color: #1a1a1a;
-            mix-blend-mode: difference; /* Added difference back */
         }
 
         .hero-photo-layer {
@@ -2021,7 +2020,7 @@
                     <img src="work14.jpg" class="scatter-img" alt="Work 14" loading="lazy">
                     <img src="work15.jpg" class="scatter-img" alt="Work 15" loading="lazy">
                     <img src="work16.jpg" class="scatter-img" alt="Work 16" loading="lazy">
-                    <img src="work17.jpg" class="scatter-img" alt="Work 17" loading="lazy">
+                    <img src="work17.png" class="scatter-img" alt="Work 17" loading="lazy">
                     <img src="work18.png" class="scatter-img" alt="Work 18" loading="lazy">
                     <img src="work19.png" class="scatter-img" alt="Work 19" loading="lazy">
                     <img src="work20.png" class="scatter-img" alt="Work 20" loading="lazy">
@@ -2497,7 +2496,7 @@
                     if (scrollY < window.innerHeight && isLoaded) {
                         if (heroPhoto) {
                             heroPhoto.style.transform = `translateX(-50%) translateY(${scrollY * 0.4}px)`;
-                            heroPhoto.style.filter = `grayscale(100%) blur(${scrollY * 0.02}px)`;
+                            heroPhoto.style.filter = `grayscale(100%)`;
                             heroPhoto.style.opacity = 1 - (scrollY / window.innerHeight) * 1.5;
                         }
                         if (heroName) {
@@ -2513,7 +2512,7 @@
                             heroCta.style.opacity = 1 - (scrollY / window.innerHeight) * 2;
                         }
                     } else if (scrollY === 0 && isLoaded) {
-                        if (heroPhoto) { heroPhoto.style.transform = 'translateX(-50%) translateY(0)'; heroPhoto.style.filter = 'grayscale(100%) blur(0px)'; heroPhoto.style.opacity = '1'; }
+                        if (heroPhoto) { heroPhoto.style.transform = 'translateX(-50%) translateY(0)'; heroPhoto.style.filter = 'grayscale(100%)'; heroPhoto.style.opacity = '1'; }
                         if (heroName) { heroName.style.transform = 'translate(-50%, -50%)'; heroName.style.opacity = '1'; }
                         if (heroLabels) { heroLabels.style.transform = ''; heroLabels.style.opacity = '1'; }
                         if (heroCta) { heroCta.style.transform = ''; heroCta.style.opacity = '1'; }

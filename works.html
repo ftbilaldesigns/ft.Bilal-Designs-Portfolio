@@ -1596,12 +1596,13 @@
             let gallery = [];     // { src, item } of currently visible works
             let galIdx  = 0;      // currently shown index
 
-            /* collect all visible items into gallery[] */
+            /* collect all visible items into gallery[] using resolved absolute src */
             function buildGallery() {
                 gallery = [];
                 document.querySelectorAll('#worksGrid .masonry-item').forEach(item => {
                     if (getComputedStyle(item).display !== 'none') {
-                        gallery.push({ src: item.querySelector('img').getAttribute('src'), item });
+                        const img = item.querySelector('img');
+                        gallery.push({ src: img.src, item });  // img.src = full absolute URL
                     }
                 });
             }
@@ -1611,7 +1612,7 @@
                 galIdx = ((idx % gallery.length) + gallery.length) % gallery.length;
                 lightboxImg.style.opacity = '0';
                 setTimeout(() => {
-                    lightboxImg.setAttribute('src', gallery[galIdx].src);
+                    lightboxImg.src = gallery[galIdx].src;
                     lightboxImg.style.opacity = '1';
                 }, 160);
             }
@@ -1619,15 +1620,15 @@
             /* single delegated click listener on the grid */
             document.getElementById('worksGrid').addEventListener('click', function(e) {
                 const item = e.target.closest('.masonry-item');
-                if (!item) return;               // click was on something else
-                if (getComputedStyle(item).display === 'none') return;  // filtered out
+                if (!item) return;
+                if (getComputedStyle(item).display === 'none') return;
 
                 buildGallery();
-                const clickedSrc = item.querySelector('img').getAttribute('src');
+                const clickedSrc = item.querySelector('img').src;  // full absolute URL
                 galIdx = gallery.findIndex(g => g.src === clickedSrc);
                 if (galIdx === -1) galIdx = 0;
 
-                lightboxImg.setAttribute('src', gallery[galIdx].src);
+                lightboxImg.src = gallery[galIdx].src;
                 lightboxImg.style.opacity = '1';
                 lightbox.classList.add('active');
                 document.body.style.overflow = 'hidden';

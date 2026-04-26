@@ -562,8 +562,8 @@
         }
 
         [data-theme="light"] .hero-name-layer {
-            color: #1a1a1a;
-            mix-blend-mode: normal;
+            color: #1a1a1a !important;
+            mix-blend-mode: normal !important;
         }
 
         .hero-photo-layer {
@@ -1709,8 +1709,8 @@
            CUSTOM CURSOR
         ================================ */
         @media (pointer: fine) {
-            * {
-                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23888' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") 8 8, auto !important;
+            body {
+                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23888888' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") 8 8, auto !important;
             }
 
             a,
@@ -1719,8 +1719,9 @@
             .filter-btn,
             input,
             textarea,
-            select {
-                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='white' stroke='%23333' stroke-width='1.5'/%3E%3C/svg%3E") 10 10, pointer !important;
+            select,
+            .hero-cta-layer {
+                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='white' stroke='%23333333' stroke-width='1.5'/%3E%3C/svg%3E") 10 10, pointer !important;
             }
         }
 
@@ -2499,7 +2500,7 @@
                             const fadeProgress = scrollY / window.innerHeight;
                             heroPhoto.style.transform = `translateX(-50%) translateY(${scrollY * 0.4}px)`;
                             heroPhoto.style.filter = `grayscale(100%)`;
-                            heroPhoto.style.opacity = Math.max(0, 1 - fadeProgress * 1.2);
+                            heroPhoto.style.opacity = Math.max(0, 1 - fadeProgress * 2.5);
                         }
                         if (heroName) {
                             heroName.style.transform = `translate(-50%, calc(-50% - ${scrollY * 0.25}px))`;

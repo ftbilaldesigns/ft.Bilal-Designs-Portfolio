@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ft.Bilal Designs | Freelance Graphic Designer</title>
+    <title>ft.Bilal Designs | Visual Identity Designer</title>
     <meta name="description"
-        content="ft.Bilal Designs — a Freelance Graphic Designer based in Kerala, India. Minimalist, professional, and purposeful design.">
+        content="ft.Bilal Designs — Visual Identity Design for Startups, Founders, and Growing Brands. Minimal, strategic, built to last.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -541,7 +541,8 @@
 
         .hero-name-layer {
             position: absolute;
-            top: 40%; /* Moved higher */
+            top: 40%;
+            /* Moved higher */
             left: 50%;
             transform: translate(-50%, -50%);
             font-family: 'Inter', sans-serif;
@@ -562,8 +563,8 @@
         }
 
         [data-theme="light"] .hero-name-layer {
-            color: #1a1a1a !important;
-            mix-blend-mode: normal !important;
+            color: #1a1a1a;
+            mix-blend-mode: normal;
         }
 
         .hero-photo-layer {
@@ -609,8 +610,8 @@
         /* Hero label — minimal, small */
         .hero-labels-layer {
             position: absolute;
-            bottom: 170px;
-            left: 188px;
+            bottom: 210px;
+            left: 154px;
             z-index: 4;
             font-family: 'Inter', sans-serif;
             font-weight: var(--fw-light);
@@ -619,9 +620,30 @@
             line-height: 1.1;
             letter-spacing: 0.05em;
             text-transform: none;
+            font-style: normal;
             opacity: 0;
             animation: heroFadeIn 0.8s ease-in-out 0.8s forwards;
             transition: color 0.45s ease;
+        }
+
+        /* Hero CTA Left (Let's Work Together) */
+        .hero-cta-left {
+            position: absolute;
+            bottom: 170px;
+            left: 154px;
+            z-index: 4;
+            opacity: 0;
+            animation: heroFadeIn 0.8s ease-in-out 0.8s forwards;
+        }
+
+        /* Hero CTA Right (See My Works) */
+        .hero-cta-right {
+            position: absolute;
+            bottom: 120px;
+            right: 15%;
+            z-index: 4;
+            opacity: 0;
+            animation: heroFadeIn 0.8s ease-in-out 0.8s forwards;
         }
 
         /* Hero CTA — minimal text + arrow */
@@ -655,29 +677,20 @@
         }
 
         .hero-cta-arrow {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
-            border: 1px solid var(--color-heading);
-            border-radius: 50%;
-            transition: border-color 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-            flex-shrink: 0;
+            opacity: 0.5;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .hero-cta-layer:hover .hero-cta-arrow {
-            transform: rotate(45deg);
+            opacity: 1;
+            transform: translate(2px, -2px);
         }
 
         .hero-cta-arrow svg {
-            width: 12px;
-            height: 12px;
-            stroke: var(--color-heading);
-            fill: none;
-            stroke-width: 1.8;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            display: block;
             transition: stroke 0.45s ease;
         }
 
@@ -690,7 +703,8 @@
             .hero-name-layer {
                 font-size: clamp(80px, 14vw, 130px);
                 font-weight: var(--fw-light);
-                top: 40%; /* Higher on tablet */
+                top: 40%;
+                /* Higher on tablet */
                 left: 50%;
                 transform: translate(-50%, -50%);
                 text-align: right;
@@ -706,9 +720,19 @@
 
             .hero-labels-layer {
                 font-size: 18px;
-                left: 80px;
-                bottom: 20vh;
+                left: 60px;
+                bottom: 26vh;
                 line-height: 1.2;
+            }
+
+            .hero-cta-left {
+                left: 60px;
+                bottom: 20vh;
+            }
+
+            .hero-cta-right {
+                right: 80px;
+                bottom: 20vh;
             }
 
             .hero-cta-layer {
@@ -731,7 +755,8 @@
                 text-align: right;
                 line-height: 1.05;
                 width: auto;
-                top: 30%; /* Much higher on phone */
+                top: 30%;
+                /* Much higher on phone */
                 left: 50%;
                 transform: translate(-50%, -50%);
             }
@@ -744,16 +769,28 @@
             }
 
             .hero-labels-layer {
-                font-size: 14px; /* Reduced size */
-                left: 60px;
-                bottom: 8vh; /* Lowered position */
+                font-size: 14px;
+                left: 45px;
+                bottom: 15vh;
                 line-height: 1.2;
             }
 
-            .hero-cta-layer {
-                font-size: 13px; /* Reduced size */
+            .hero-cta-left {
+                left: 45px;
+                bottom: 8vh;
+            }
+
+            .hero-cta-right {
                 right: 60px;
-                bottom: 8vh; /* Lowered position */
+                bottom: 8vh;
+            }
+
+            .hero-cta-layer {
+                font-size: 13px;
+                /* Reduced size */
+                right: 60px;
+                bottom: 8vh;
+                /* Lowered position */
             }
         }
 
@@ -877,7 +914,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1px;
             margin-bottom: 1px;
             background: var(--color-border);
@@ -903,6 +940,30 @@
             justify-content: space-between;
             transition: background-color 0.3s ease;
             height: 100%;
+        }
+
+        .service-card-featured {
+            background-color: var(--color-surface);
+            position: relative;
+        }
+
+        .service-card-featured:hover {
+            background-color: var(--color-surface-2);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background-color: var(--color-heading);
+            color: var(--color-bg);
+            font-size: 9px;
+            font-weight: var(--fw-semibold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 3px 8px;
+            border-radius: 2px;
+            line-height: 1;
         }
 
         .service-card:hover {
@@ -971,6 +1032,100 @@
             font-style: italic;
             margin-top: 40px;
             transition: color 0.45s ease;
+        }
+
+        /* ================================
+           SERVICES — LIST
+        ================================ */
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto 0 auto;
+        }
+
+        .service-row {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--color-border);
+            text-decoration: none;
+            gap: 24px;
+            transition: border-color 0.3s ease, padding 0.3s ease, background-color 0.3s ease;
+        }
+
+        .service-row:last-child {
+            border-bottom: none;
+        }
+
+        .service-num {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            font-weight: var(--fw-medium);
+            font-family: var(--font-body);
+            min-width: 24px;
+            flex-shrink: 0;
+        }
+
+        .service-details {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .service-row-title {
+            font-size: 18px;
+            font-weight: var(--fw-medium);
+            color: var(--color-heading);
+            margin: 0;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .service-row-desc {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            margin: 0;
+            line-height: 1.45;
+            transition: color 0.3s ease;
+        }
+
+        .service-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-muted);
+            transition: transform 0.3s ease, color 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .service-arrow svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            transition: stroke 0.3s ease;
+        }
+
+        /* Hover states */
+        .service-row:hover {
+            border-color: var(--color-heading);
+        }
+
+        .service-row:hover .service-row-title {
+            color: var(--color-heading);
+        }
+
+        .service-row:hover .service-row-desc {
+            color: var(--color-text);
+        }
+
+        .service-row:hover .service-arrow {
+            transform: translate(3px, -3px);
+            color: var(--color-heading);
         }
 
         /* ================================
@@ -1319,6 +1474,7 @@
             display: grid;
             grid-template-columns: 45% 55%;
             gap: 60px;
+            align-items: flex-start;
         }
 
         .contact-info p {
@@ -1326,7 +1482,7 @@
         }
 
         .contact-details {
-            margin-bottom: 40px;
+            margin-bottom: 0;
         }
 
         .contact-detail-row {
@@ -1365,7 +1521,7 @@
             display: flex;
             gap: 12px;
             align-items: center;
-            margin-bottom: 40px;
+            margin-bottom: 0;
             flex-wrap: nowrap;
         }
 
@@ -1395,8 +1551,9 @@
         }
 
         .contact-form {
+            height: fit-content;
             background: var(--color-surface);
-            padding: 40px;
+            padding: 40px 40px 50px 40px;
             border-radius: 4px;
             border: 1px solid var(--color-border);
             transition: var(--transition-theme);
@@ -1710,7 +1867,7 @@
         ================================ */
         @media (pointer: fine) {
             body {
-                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23888888' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") 8 8, auto !important;
+                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Cpath d='M8.1,3.4l11.4,6.7c1.4,0.8,1.4,2.9,0,3.7l-11.4,6.7C6.6,21.3,5,20.3,5,18.7V5.3C5,3.6,6.6,2.7,8.1,3.4z' fill='%23666666' stroke='white' stroke-width='1.5' stroke-linejoin='round' transform='rotate(-20 12 12)'/%3E%3C/svg%3E") 8 5, auto !important;
             }
 
             a,
@@ -1719,9 +1876,8 @@
             .filter-btn,
             input,
             textarea,
-            select,
-            .hero-cta-layer {
-                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='white' stroke='%23333333' stroke-width='1.5'/%3E%3C/svg%3E") 10 10, pointer !important;
+            select {
+                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 24 24'%3E%3Cpath d='M8.1,3.4l11.4,6.7c1.4,0.8,1.4,2.9,0,3.7l-11.4,6.7C6.6,21.3,5,20.3,5,18.7V5.3C5,3.6,6.6,2.7,8.1,3.4z' fill='white' stroke='black' stroke-width='1.5' stroke-linejoin='round' transform='rotate(-20 12 12)'/%3E%3C/svg%3E") 8 5, pointer !important;
             }
         }
 
@@ -1749,11 +1905,9 @@
             <a href="#home" class="nav-brand">ft.Bilal Designs</a>
             <div class="nav-right">
                 <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#services" class="nav-link">Services</a></li>
                     <li><a href="#works" class="nav-link">Works</a></li>
-                    <li><a href="#packages" class="nav-link">Packages</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
 
@@ -1799,12 +1953,10 @@
                 <line x1="19" y1="5" x2="5" y2="19" />
             </svg>
         </button>
-        <a href="#home" class="nav-link delay-1">Home</a>
-        <a href="#about" class="nav-link delay-2">About</a>
-        <a href="#services" class="nav-link delay-3">Services</a>
-        <a href="#works" class="nav-link delay-4">Works</a>
-        <a href="#packages" class="nav-link" style="transition-delay: 0.5s;">Packages</a>
-        <a href="#contact" class="nav-link" style="transition-delay: 0.6s;">Contact</a>
+        <a href="#about" class="nav-link delay-1">About</a>
+        <a href="#services" class="nav-link delay-2">Services</a>
+        <a href="#works" class="nav-link delay-3">Works</a>
+        <a href="#contact" class="nav-link delay-4">Contact</a>
     </div>
 
     <main id="main-content">
@@ -1814,20 +1966,32 @@
             <div class="hero-name-layer">
                 Muhammed<br>Bilal
             </div>
-            <img src="heroimg.png" alt="Muhammed Bilal" class="hero-photo-layer" width="1440" height="2560">
+            <img src="assets/heroimg.png" alt="Muhammed Bilal" class="hero-photo-layer" width="1440" height="2560">
             <div class="hero-labels-layer">
-                Freelance<br>Graphic<br>Designer
+                Visual Identity<br>Designer
+                <span
+                    style="display: block; font-size: 0.6em; color: var(--color-text-muted); font-style: normal; margin-top: 8px; font-weight: var(--fw-regular); line-height: 1.4; max-width: 220px; letter-spacing: 0;">Helping
+                    brands show up with<br>clarity and confidence.</span>
             </div>
-            <!-- Minimal CTA: text + arrow circle -->
-            <a href="#scatterContainer" class="hero-cta-layer">
-                See My Works
-                <span class="hero-cta-arrow">
-                    <svg viewBox="0 0 24 24">
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <polyline points="13 6 19 12 13 18" />
-                    </svg>
-                </span>
-            </a>
+            <!-- Right Side CTA Group -->
+            <div class="hero-cta-right"
+                style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px;">
+                <a href="#contact" class="hero-cta-layer"
+                    style="position: static; opacity: 1; animation: none; margin-bottom: 2px;">
+                    Let's Talk
+                    <span class="hero-cta-arrow">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </span>
+                </a>
+                <a href="#scatterContainer"
+                    style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: var(--fw-regular); color: var(--color-text-muted); text-decoration: none; padding-left: 0px; transition: color 0.3s ease; display: inline-flex; align-items: center; gap: 6px; margin-top: -13px;">
+                    See My Works &rarr;
+                </a>
+            </div>
         </section>
 
         <!-- ABOUT SECTION -->
@@ -1851,20 +2015,14 @@
                 </div>
                 <div class="about-text-col">
                     <span class="tag" data-animate>About Me</span>
-                    <h2 class="section-heading" data-animate>Who Am I</h2>
+                    <h2 class="section-heading" data-animate>Who I Am</h2>
                     <div class="about-bio" data-animate class="delay-2">
-                        <p>I'm Bilal — a freelance graphic designer based in Kerala, India, with 3 years of hands-on
-                            experience crafting visuals that are clean, purposeful, and built to perform. Working in
-                            Adobe Photoshop and Illustrator, I bring a minimal, professional approach to every project —
-                            stripping away the noise so the design does the talking.</p>
-                        <p>I'm open for project-based work and long-term creative collaborations — not as an employee,
-                            but as a dedicated creative partner. Whether you're a startup finding your visual voice, a
-                            small business building credibility, a content creator shaping your brand, a growing
-                            venture, an agency needing reliable support, or an individual who simply wants to look their
-                            best — I'm here for it.</p>
-                        <p>Every pixel has a purpose. Every deliverable is crafted with intention — because great design
-                            isn't just about looking good, it's about communicating the right thing to the right people
-                            at the right time.</p>
+                        <p>I'm Bilal — a freelance graphic designer with 3 years of hands-on experience building visual
+                            identities and design systems for businesses that care about how they look. Every pixel has
+                            a purpose. Every deliverable is crafted with intention.</p>
+                        <p>I work with startups, founders, personal brands, and small agencies. I'm based in Kerala but
+                            work with clients anywhere in the world. If you're building something from scratch or want
+                            to give your brand a proper look, I'd love to be part of that.</p>
                     </div>
                     <div class="tools-row" data-animate class="delay-4">
                         <span class="tools-label">Primary Tools</span>
@@ -1880,96 +2038,72 @@
             <div class="container">
                 <div class="section-header-center" data-animate>
                     <span class="tag">What I Do</span>
-                    <h2 class="section-heading">Services Built Around Your Vision</h2>
-                    <p class="section-subtext">Available for one-off projects and ongoing collaborations.</p>
+                    <h2 class="section-heading">Core Expertise</h2>
+                    <p class="section-subtext">Open to project-based and ongoing collaborations.</p>
                 </div>
 
-                <div class="services-grid">
-                    <div class="service-card" data-animate class="delay-1">
-                        <div>
-                            <div class="service-icon-box">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M6 3h12l4 6-10 12L2 9z" />
-                                    <path d="M2 9h20" />
-                                    <path d="M6 3l4 6m8-6l-4 6" />
-                                </svg>
-                            </div>
-                            <h3 class="service-title">Brand Identity</h3>
-                            <p class="service-desc">Logo systems, color palettes, typography stacks, and brand
-                                guidelines that help you show up consistently and confidently across every platform.</p>
+                <div class="services-list">
+                    <a href="#contact" class="service-row" data-animate>
+                        <span class="service-num">01</span>
+                        <div class="service-details">
+                            <h3 class="service-row-title">Visual Identity Design</h3>
+                            <p class="service-row-desc">Logo systems, color, typography, and brand guidelines built to
+                                last.</p>
                         </div>
-                        <a href="#contact" class="service-link">Enquire &rarr;</a>
-                    </div>
-                    <div class="service-card" data-animate class="delay-2">
-                        <div>
-                            <div class="service-icon-box">
-                                <svg viewBox="0 0 24 24">
-                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                                    <line x1="12" y1="18" x2="12" y2="18" stroke-linecap="round" stroke-width="2.5" />
-                                    <path
-                                        d="M9 7.5c0-1 .8-1.5 1.5-1.5.6 0 1.1.3 1.5.8.4-.5.9-.8 1.5-.8.7 0 1.5.5 1.5 1.5 0 1.5-3 3-3 3S9 9 9 7.5z" />
-                                </svg>
-                            </div>
-                            <h3 class="service-title">Social Media Design</h3>
-                            <p class="service-desc">Posts, story templates, reel covers, and highlight icons — designed
-                                to keep your feed sharp and your audience engaged month after month.</p>
+                        <span class="service-arrow">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="#contact" class="service-row delay-1" data-animate>
+                        <span class="service-num">02</span>
+                        <div class="service-details">
+                            <h3 class="service-row-title">Social Media Design</h3>
+                            <p class="service-row-desc">Consistent, on-brand content designed to keep audiences engaged.
+                            </p>
                         </div>
-                        <a href="#contact" class="service-link">Enquire &rarr;</a>
-                    </div>
-                    <div class="service-card" data-animate class="delay-3">
-                        <div>
-                            <div class="service-icon-box">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M3 11v2a1 1 0 001 1h1l2 4h1v-4h.5C11 14 18 17 18 17V7s-7 3-9.5 3H4a1 1 0 00-1 1z" />
-                                    <path d="M20 8.5a3.5 3.5 0 010 7" />
-                                </svg>
-                            </div>
-                            <h3 class="service-title">Poster &amp; Banner Design</h3>
-                            <p class="service-desc">High-impact posters, event banners, and promotional creatives for
-                                digital and print — built to demand attention at first glance.</p>
+                        <span class="service-arrow">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="#contact" class="service-row delay-2" data-animate>
+                        <span class="service-num">03</span>
+                        <div class="service-details">
+                            <h3 class="service-row-title">Print &amp; Promotional</h3>
+                            <p class="service-row-desc">Brochures, posters, menus, and business cards with
+                                production-ready output.</p>
                         </div>
-                        <a href="#contact" class="service-link">Enquire &rarr;</a>
-                    </div>
+                        <span class="service-arrow">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="#contact" class="service-row delay-3" data-animate>
+                        <span class="service-num">04</span>
+                        <div class="service-details">
+                            <h3 class="service-row-title">Web Design</h3>
+                            <p class="service-row-desc">Design-led landing pages and websites with strong visual
+                                presence.</p>
+                        </div>
+                        <span class="service-arrow">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </span>
+                    </a>
                 </div>
-                <div class="services-grid-bottom">
-                    <div class="service-card" data-animate class="delay-1">
-                        <div>
-                            <div class="service-icon-box">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" />
-                                    <circle cx="12" cy="13" r="4" />
-                                </svg>
-                            </div>
-                            <h3 class="service-title">Photo Editing</h3>
-                            <p class="service-desc">Colour grading, background removal, retouching, and creative
-                                compositing — turning raw images into polished, professional visuals.</p>
-                        </div>
-                        <a href="#contact" class="service-link">Enquire &rarr;</a>
-                    </div>
-                    <div class="service-card" data-animate class="delay-2">
-                        <div>
-                            <div class="service-icon-box">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                                    <polyline points="14 2 14 8 20 8" />
-                                    <line x1="8" y1="13" x2="16" y2="13" />
-                                    <line x1="8" y1="17" x2="13" y2="17" />
-                                </svg>
-                            </div>
-                            <h3 class="service-title">Print Design</h3>
-                            <p class="service-desc">Business cards, flyers, brochures, and promotional print materials —
-                                crafted print-ready with sharp attention to production standards.</p>
-                        </div>
-                        <a href="#contact" class="service-link">Enquire &rarr;</a>
-                    </div>
-                </div>
-
-                <p class="service-note" data-animate>* Poster &amp; Banner Design, Print Design, Photo Editing, and
-                    other
-                    promotional works are available as additional services — separately priced outside monthly packages.
-                </p>
             </div>
         </section>
 
@@ -1978,8 +2112,8 @@
             <div class="container">
                 <div class="section-header-center" data-animate>
                     <span class="tag">Selected Works</span>
-                    <h2 class="section-heading">Projects That Define My Craft</h2>
-                    <p class="section-subtext">A curated collection spanning branding, digital design, and print.</p>
+                    <h2 class="section-heading">A Few Favourites</h2>
+                    <p class="section-subtext">Some of the work I'm proud of.</p>
                 </div>
 
                 <div class="scatter-container" id="scatterContainer" data-animate>
@@ -2006,26 +2140,26 @@
                         </span>
                     </div>
 
-                    <img src="work1.png" class="scatter-img" alt="Work 1">
-                    <img src="work2.png" class="scatter-img" alt="Work 2" loading="lazy">
-                    <img src="work3.png" class="scatter-img" alt="Work 3" loading="lazy">
-                    <img src="work4.png" class="scatter-img" alt="Work 4" loading="lazy">
-                    <img src="work5.png" class="scatter-img" alt="Work 5" loading="lazy">
-                    <img src="work6.png" class="scatter-img" alt="Work 6" loading="lazy">
-                    <img src="work7.png" class="scatter-img" alt="Work 7" loading="lazy">
-                    <img src="work8.png" class="scatter-img" alt="Work 8" loading="lazy">
-                    <img src="work9.png" class="scatter-img" alt="Work 9" loading="lazy">
-                    <img src="work10.png" class="scatter-img" alt="Work 10" loading="lazy">
-                    <img src="work11.png" class="scatter-img" alt="Work 11" loading="lazy">
-                    <img src="work12.png" class="scatter-img" alt="Work 12" loading="lazy">
-                    <img src="work13.jpg" class="scatter-img" alt="Work 13" loading="lazy">
-                    <img src="work14.jpg" class="scatter-img" alt="Work 14" loading="lazy">
-                    <img src="work15.jpg" class="scatter-img" alt="Work 15" loading="lazy">
-                    <img src="work16.png" class="scatter-img" alt="Work 16" loading="lazy">
-                    <img src="work17.png" class="scatter-img" alt="Work 17" loading="lazy">
-                    <img src="work18.png" class="scatter-img" alt="Work 18" loading="lazy">
-                    <img src="work19.png" class="scatter-img" alt="Work 19" loading="lazy">
-                    <img src="work20.png" class="scatter-img" alt="Work 20" loading="lazy">
+                    <img src="works/augma-social-2.png" class="scatter-img" alt="Work 1">
+                    <img src="works/coastal-social-3.png" class="scatter-img" alt="Work 2" loading="lazy">
+                    <img src="works/excellenceip-social-4.png" class="scatter-img" alt="Work 3" loading="lazy">
+                    <img src="works/excellenceip-social-8.png" class="scatter-img" alt="Work 4" loading="lazy">
+                    <img src="works/excellenceip-social-15.png" class="scatter-img" alt="Work 5" loading="lazy">
+                    <img src="works/marby-social-2.png" class="scatter-img" alt="Work 6" loading="lazy">
+                    <img src="works/marby-social-6.png" class="scatter-img" alt="Work 7" loading="lazy">
+                    <img src="works/marby-social-8.png" class="scatter-img" alt="Work 8" loading="lazy">
+                    <img src="works/marby-social-10.png" class="scatter-img" alt="Work 9" loading="lazy">
+                    <img src="works/nexa-social-1.png" class="scatter-img" alt="Work 10" loading="lazy">
+                    <img src="works/other-package-1.png" class="scatter-img" alt="Work 11" loading="lazy">
+                    <img src="works/other-print-2.png" class="scatter-img" alt="Work 12" loading="lazy">
+                    <img src="works/other-social-2.png" class="scatter-img" alt="Work 13" loading="lazy">
+                    <img src="works/other-social-3.png" class="scatter-img" alt="Work 14" loading="lazy">
+                    <img src="works/other-social-4.png" class="scatter-img" alt="Work 15" loading="lazy">
+                    <img src="works/other-social-6.png" class="scatter-img" alt="Work 16" loading="lazy">
+                    <img src="works/other-social-7.png" class="scatter-img" alt="Work 17" loading="lazy">
+                    <img src="works/turnup-social-2.png" class="scatter-img" alt="Work 18" loading="lazy">
+                    <img src="works/turnup-social-3.png" class="scatter-img" alt="Work 19" loading="lazy">
+                    <img src="works/xemirates-social-2.png" class="scatter-img" alt="Work 20" loading="lazy">
                 </div>
 
                 <div class="view-all-works" data-animate>
@@ -2034,229 +2168,87 @@
             </div>
         </section>
 
-        <!-- PACKAGES SECTION -->
+        <!-- WORK WITH ME SECTION -->
         <section id="packages">
             <div class="container">
                 <div class="section-header-center" data-animate>
-                    <span class="tag">Monthly Packages</span>
-                    <h2 class="section-heading">Simple, Transparent Packages</h2>
-                    <p class="section-subtext" style="max-width: 560px;">Consistent monthly design support — no
-                        surprises, no retainer lock-ins. Choose a package that fits your needs and scale up anytime. All
-                        packages are starting prices; final pricing depends on content type and complexity.</p>
+                    <span class="tag">Work With Me</span>
+                    <h2 class="section-heading">What I Can Do For You</h2>
+                    <p class="section-subtext" style="max-width: 560px;">Brand identity, social media, print, or a
+                        website. Tell me what you need.</p>
                 </div>
 
-                <div class="loyalty-banner" data-animate>
-                    <div class="loyalty-text">
-                        <svg width="14" height="14" viewBox="0 0 24 24" stroke-width="1.8">
-                            <polygon
-                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                            </polygon>
-                        </svg>
-                        Loyalty Reward — From your 4th month onwards, enjoy a 10% discount on your current package. The
-                        longer we work together, the more you save.
+                <div class="services-grid">
+                    <!-- Brand Identity Card -->
+                    <div class="service-card" data-animate>
+                        <div>
+                            <div class="service-icon-box">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M6 3h12l4 6-10 12L2 9z" />
+                                    <path d="M2 9h20" />
+                                    <path d="M6 3l4 6m8-6l-4 6" />
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Brand Identity</h3>
+                            <p class="service-desc">Logo systems, color palettes, typography, and brand guidelines built
+                                around your business.</p>
+                        </div>
+                        <a href="#contact" class="service-link">Get a Quote &rarr;</a>
+                    </div>
+
+                    <!-- Social Media Design Card -->
+                    <div class="service-card delay-1" data-animate>
+                        <div>
+                            <div class="service-icon-box">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="3" y="3" width="18" height="18" rx="3" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Social Media Design</h3>
+                            <p class="service-desc">Consistent, on-brand content designed to keep your audience engaged
+                                month after month.</p>
+                        </div>
+                        <a href="#contact" class="service-link">Get a Quote &rarr;</a>
+                    </div>
+
+                    <!-- Print & Promotional Card -->
+                    <div class="service-card delay-2" data-animate>
+                        <div>
+                            <div class="service-icon-box">
+                                <svg viewBox="0 0 24 24">
+                                    <polyline points="6 9 6 2 18 2 18 9" />
+                                    <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" />
+                                    <rect x="6" y="14" width="12" height="8" />
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Print &amp; Promotional</h3>
+                            <p class="service-desc">Brochures, posters, menus, business cards — crafted print-ready with
+                                sharp attention to detail.</p>
+                        </div>
+                        <a href="#contact" class="service-link">Get a Quote &rarr;</a>
+                    </div>
+
+                    <!-- Web Design Card -->
+                    <div class="service-card service-card-featured delay-3" data-animate>
+                        <span class="card-badge">New</span>
+                        <div>
+                            <div class="service-icon-box">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                    <line x1="2" y1="10" x2="22" y2="10" />
+                                    <path d="M8 21h8" />
+                                    <line x1="12" y1="17" x2="12" y2="21" />
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Web Design</h3>
+                            <p class="service-desc">Landing pages, portfolio sites, and business websites designed to
+                                make a strong first impression.</p>
+                        </div>
+                        <a href="#contact" class="service-link">Get a Quote &rarr;</a>
                     </div>
                 </div>
-
-                <div class="packages-grid">
-                    <!-- Basic Card -->
-                    <div class="package-card" data-animate>
-                        <div class="pkg-top">
-                            <div class="pkg-label">Basic</div>
-                            <h3 class="pkg-title">Basic</h3>
-                            <div class="pkg-price">₹2,500</div>
-                            <div class="pkg-sub">/ month &middot; starting from</div>
-                            <div class="pkg-divider"></div>
-                        </div>
-
-                        <div class="pkg-features">
-                            <div class="pkg-inc-label">What's Included</div>
-
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                5 Social Media Posts / month
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                3 Revisions per deliverable
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                Single design delivered within 24 hrs
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                Source files on request (additional charge)
-                            </div>
-                            <div class="pkg-feature not-included">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                Priority turnaround (not included)
-                            </div>
-                            <div class="pkg-feature not-included">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                Dedicated brand style file (not included)
-                            </div>
-                        </div>
-
-                        <p class="pkg-note">* Poster, banner, business card, brochure &amp; other promotional works
-                            charged
-                            additionally.</p>
-                        <a href="#contact" class="btn btn-outline pkg-btn">Get Started &rarr;</a>
-                    </div>
-
-                    <!-- Standard Card -->
-                    <div class="package-card elevated" data-animate class="delay-1">
-                        <div class="popular-badge">Most Popular</div>
-                        <div class="pkg-top">
-                            <div class="pkg-label">Standard</div>
-                            <h3 class="pkg-title">Standard</h3>
-                            <div class="pkg-price">₹4,500</div>
-                            <div class="pkg-sub">/ month &middot; starting from</div>
-                            <div class="pkg-divider"></div>
-                        </div>
-
-                        <div class="pkg-features">
-                            <div class="pkg-inc-label">What's Included</div>
-
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                10 Social Media Posts / month
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                3 Revisions per deliverable
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                Single design delivered within 24 hrs
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                Source files on request (additional charge)
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                Priority turnaround on selected deliverables
-                            </div>
-                            <div class="pkg-feature not-included">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                Dedicated brand style file (not included)
-                            </div>
-                        </div>
-
-                        <p class="pkg-note">* Poster, banner, business card, brochure &amp; other promotional works
-                            charged
-                            additionally.</p>
-                        <a href="#contact" class="btn btn-primary pkg-btn">Get Started &rarr;</a>
-                    </div>
-
-                    <!-- Premium Card -->
-                    <div class="package-card" data-animate class="delay-2">
-                        <div class="pkg-top">
-                            <div class="pkg-label">Premium</div>
-                            <h3 class="pkg-title">Premium</h3>
-                            <div class="pkg-price">₹6,000</div>
-                            <div class="pkg-sub">/ month &middot; starting from</div>
-                            <div class="pkg-divider"></div>
-                        </div>
-
-                        <div class="pkg-features">
-                            <div class="pkg-inc-label">What's Included</div>
-
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                15 Social Media Posts / month
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                3 Revisions per deliverable
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                Single design delivered within 24 hrs
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                Source files on request (additional charge)
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                Priority turnaround on all deliverables
-                            </div>
-                            <div class="pkg-feature">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                Dedicated brand style file maintained
-                            </div>
-                        </div>
-
-                        <p class="pkg-note">* Poster, banner, business card, brochure &amp; other promotional works
-                            charged
-                            additionally.</p>
-                        <a href="#contact" class="btn btn-outline pkg-btn">Get Started &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="custom-note" data-animate>
-                    <p>Need something custom — more posts, mixed service types, or long-term agency support?</p>
-                    <a href="#contact" class="custom-link">Let's talk about a custom package &rarr;</a>
-                </div>
-
-                <p class="pricing-note" data-animate>Prices vary slightly based on content type — social media post
-                    packages are priced marginally higher than story or reel cover packages. Final quote shared on
-                    enquiry.</p>
             </div>
         </section>
 
@@ -2267,9 +2259,8 @@
                     <span class="tag">Work With Me</span>
                     <h2 class="section-heading">Project in Mind?<br>Let's Talk.
                     </h2>
-                    <p>I'm available for project-based work and long-term creative collaborations — not hiring, just
-                        creating. Whether it's a one-off design or an ongoing monthly package, reach out via WhatsApp or
-                        email and let's figure out what works best for you.</p>
+                    <p>Open to new projects — one-off work or something ongoing, both work for me. Drop a message on
+                        WhatsApp or fill the form and we'll take it from there.</p>
 
                     <div class="contact-details">
                         <div class="contact-detail-row">
@@ -2279,48 +2270,57 @@
                             </svg>
                             <span class="strong">ft.bilal.designs@gmail.com</span>
                         </div>
-                        <div class="contact-detail-row">
-                            <svg viewBox="0 0 24 24">
+                        <div class="contact-detail-row" style="align-items: flex-start;">
+                            <svg viewBox="0 0 24 24"
+                                style="margin-top: 4px; fill: var(--color-heading-alt); stroke: none;">
                                 <path
-                                    d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.032c0 2.12.54 4.189 1.577 6.06L0 24l6.117-1.605a11.803 11.803 0 005.925 1.597h.005c6.635 0 12.032-5.396 12.035-12.032a11.76 11.76 0 00-3.417-8.481z" />
                             </svg>
-                            <span class="strong"><span style="font-weight: 400;">+91</span> 75919
-                                44074</span>
+                            <div style="display: flex; flex-direction: column; gap: 4px;">
+                                <a href="https://wa.me/917591944074" target="_blank" class="strong"
+                                    style="text-decoration: none; font-size: 14px; font-weight: var(--fw-medium); color: var(--color-heading-alt); transition: color 0.3s ease;">Chat
+                                    on WhatsApp &rarr;</a>
+                                <div style="font-size: 13px; color: var(--color-text-muted);">+91 75919 44074</div>
+                            </div>
                         </div>
-                        <div class="contact-detail-row">
-                            <svg viewBox="0 0 24 24">
+                        <div class="contact-detail-row" style="align-items: flex-start;">
+                            <svg viewBox="0 0 24 24" style="margin-top: 2px;">
                                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
                                 <circle cx="12" cy="9" r="2.5" fill="var(--color-bg)"
                                     stroke="var(--color-heading-alt)" />
                             </svg>
-                            <span class="strong">Kerala, India</span>
+                            <span class="strong"
+                                style="font-size: 13px; font-weight: var(--fw-regular); color: var(--color-text-muted);">Kerala,
+                                India</span>
                         </div>
+                        <a href="https://cal.com/ftbilal/15min" target="_blank" rel="noopener noreferrer"
+                            style="display: inline-block; margin-top: 12px; margin-bottom: 16px; font-size: 13px; color: var(--color-text-muted); font-weight: var(--fw-regular); text-decoration: none; transition: color 0.3s ease; letter-spacing: 0.01em;">
+                            Or book a free discovery call &rarr;
+                        </a>
                     </div>
 
                     <div class="social-icons">
-                        <a href="https://wa.me/917591944074" target="_blank" class="social-btn whatsapp-btn"
-                            aria-label="WhatsApp">
-                            <svg viewBox="0 0 24 24" fill="var(--color-heading)">
+                        <a href="https://instagram.com/ft.b_lal.__" target="_blank" class="social-btn"
+                            aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round" style="fill:none; stroke: currentColor;">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank" class="social-btn" aria-label="Fiverr">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round" style="fill:none; stroke: currentColor;">
                                 <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.396.015 12.032c0 2.12.54 4.189 1.577 6.06L0 24l6.117-1.605a11.803 11.803 0 005.925 1.597h.005c6.635 0 12.032-5.396 12.035-12.032a11.76 11.76 0 00-3.417-8.481z" />
+                                    d="M15 3h-2a6 6 0 0 0-6 6H4v4h3v8h4v-7h4v7h4V10h-8V8.967A1.967 1.967 0 0 1 13 7h2z" />
                             </svg>
                         </a>
                         <a href="mailto:ft.bilal.designs@gmail.com" class="social-btn" aria-label="Email">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                style="fill:none; stroke: var(--color-heading);">
+                                stroke-linecap="round" stroke-linejoin="round" style="fill:none; stroke: currentColor;">
                                 <path
                                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                        </a>
-                        <a href="https://instagram.com/ft.b_lal.__" target="_blank" class="social-btn"
-                            aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                style="fill:none; stroke: var(--color-heading);">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                             </svg>
                         </a>
                     </div>
@@ -2343,39 +2343,9 @@
                                 placeholder="Enter your email address" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone" class="form-label">Phone / WhatsApp</label>
-                            <input type="tel" id="phone" name="entry.558186533" class="form-control"
-                                placeholder="Enter your phone number">
-                        </div>
-                        <div class="form-group">
-                            <label for="type" class="form-label">You Are A...</label>
-                            <select id="type" name="entry.520652274" class="form-control" required>
-                                <option value="" disabled selected>Select from below</option>
-                                <option value="Individual">Individual</option>
-                                <option value="Startup">Startup</option>
-                                <option value="Small Business">Small Business</option>
-                                <option value="Content Creator">Content Creator</option>
-                                <option value="Agency">Agency</option>
-                                <option value="Venture">Venture</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="interest" class="form-label">Interested In...</label>
-                            <select id="interest" name="entry.1206274091" class="form-control" required>
-                                <option value="" disabled selected>Select from below</option>
-                                <option value="Basic">Monthly Package — Basic (₹2,500)</option>
-                                <option value="Standard">Monthly Package — Standard (₹4,500)</option>
-                                <option value="Premium">Monthly Package — Premium (₹6,000)</option>
-                                <option value="Custom">Custom Package</option>
-                                <option value="One-off">One-off Project</option>
-                                <option value="Not Sure">Not Sure Yet — Let's Discuss</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label">Tell Me About Your Project</label>
+                            <label for="message" class="form-label">Tell me about your project</label>
                             <textarea id="message" name="entry.1751798609" class="form-control" rows="5"
-                                placeholder="Briefly describe your project, brand, or what you need help with..."
+                                placeholder="Briefly describe your project,brand, or what you need help with..."
                                 required></textarea>
                         </div>
                         <button type="submit" class="btn-submit">Send Message &rarr;</button>
@@ -2390,11 +2360,9 @@
             <div class="footer-top">
                 <a href="#home" class="footer-brand">ft.Bilal Designs</a>
                 <div class="footer-links">
-                    <a href="#home">Home</a>
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
                     <a href="#works">Works</a>
-                    <a href="#packages">Packages</a>
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="footer-copy">
@@ -2488,14 +2456,15 @@
                 const heroPhoto = document.querySelector('.hero-photo-layer');
                 const heroName = document.querySelector('.hero-name-layer');
                 const heroLabels = document.querySelector('.hero-labels-layer');
-                const heroCta = document.querySelector('.hero-cta-layer');
+                const heroCtaLeft = document.querySelector('.hero-cta-left');
+                const heroCtaRight = document.querySelector('.hero-cta-right');
 
                 let isLoaded = false;
                 setTimeout(() => { isLoaded = true; }, 1800);
 
                 function parallax() {
                     const scrollY = window.scrollY;
-                    if (scrollY < window.innerHeight) {
+                    if (scrollY < window.innerHeight && isLoaded) {
                         if (heroPhoto) {
                             const fadeProgress = scrollY / window.innerHeight;
                             heroPhoto.style.transform = `translateX(-50%) translateY(${scrollY * 0.4}px)`;
@@ -2510,10 +2479,20 @@
                             heroLabels.style.transform = `translateY(${scrollY * -0.15}px)`;
                             heroLabels.style.opacity = Math.max(0, 1 - (scrollY / window.innerHeight) * 2);
                         }
-                        if (heroCta) {
-                            heroCta.style.transform = `translateY(${scrollY * -0.15}px)`;
-                            heroCta.style.opacity = Math.max(0, 1 - (scrollY / window.innerHeight) * 2);
+                        if (heroCtaLeft) {
+                            heroCtaLeft.style.transform = `translateY(${scrollY * -0.15}px)`;
+                            heroCtaLeft.style.opacity = Math.max(0, 1 - (scrollY / window.innerHeight) * 2);
                         }
+                        if (heroCtaRight) {
+                            heroCtaRight.style.transform = `translateY(${scrollY * -0.15}px)`;
+                            heroCtaRight.style.opacity = Math.max(0, 1 - (scrollY / window.innerHeight) * 2);
+                        }
+                    } else if (scrollY === 0 && isLoaded) {
+                        if (heroPhoto) { heroPhoto.style.transform = 'translateX(-50%) translateY(0)'; heroPhoto.style.filter = 'grayscale(100%) blur(0px)'; heroPhoto.style.opacity = '1'; }
+                        if (heroName) { heroName.style.transform = 'translate(-50%, -50%)'; heroName.style.opacity = '1'; }
+                        if (heroLabels) { heroLabels.style.transform = ''; heroLabels.style.opacity = '1'; }
+                        if (heroCtaLeft) { heroCtaLeft.style.transform = ''; heroCtaLeft.style.opacity = '1'; }
+                        if (heroCtaRight) { heroCtaRight.style.transform = ''; heroCtaRight.style.opacity = '1'; }
                     }
                     requestAnimationFrame(parallax);
                 }

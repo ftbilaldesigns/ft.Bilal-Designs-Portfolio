@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selected Works | ft.Bilal Designs</title>
-    <meta name="description" content="Complete portfolio archive of ft.Bilal Designs.">
+    <meta name="description"
+        content="Selected work by ft.Bilal Designs — visual identity, social media, and print design for brands and businesses.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -573,7 +574,8 @@
 
         @media (max-width: 600px) {
             .masonry-grid {
-                column-count: 1;
+                column-count: 2;
+                column-gap: 10px;
             }
         }
 
@@ -638,13 +640,15 @@
             z-index: 2;
         }
 
-        .masonry-item:hover .item-overlay {
-            opacity: 1;
-        }
+        @media (hover: hover) {
+            .masonry-item:hover .item-overlay {
+                opacity: 1;
+            }
 
-        .masonry-item:hover .item-text {
-            opacity: 1;
-            transform: translateY(0);
+            .masonry-item:hover .item-text {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .item-client {
@@ -671,8 +675,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 9999;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 999999;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -687,20 +691,18 @@
         }
 
         .lightbox-img {
-            max-width: 85vw;
-            max-height: 85vh;
-            border-radius: 4px;
+            max-width: 92vw;
+            max-height: 92vh;
             object-fit: contain;
-            opacity: 1;
+            border-radius: 0;
+            opacity: 0;
+            transform: scale(0.97);
+            transition: opacity 0.3s ease, transform 0.3s ease;
             display: block;
-            transform: scale(0.95);
-            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.2s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-            position: relative;
-            z-index: 10001;
         }
 
         .lightbox.active .lightbox-img {
+            opacity: 1;
             transform: scale(1);
         }
 
@@ -708,59 +710,51 @@
             position: absolute;
             top: 30px;
             right: 30px;
-            background: none;
-            border: none;
-            color: var(--color-heading);
-            width: 40px;
-            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff !important;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid var(--color-border);
             border-radius: 50%;
-            transition: border-color 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
+            z-index: 1000000;
         }
 
         .lightbox-close:hover {
-            border-color: var(--color-heading);
-        }
-
-        .lightbox-close svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-            stroke-width: 2;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
         }
 
         .lightbox-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: var(--color-heading);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff !important;
             width: 50px;
             height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid var(--color-border);
             border-radius: 50%;
-            transition: border-color 0.3s ease;
-            z-index: 10000;
+            transition: background 0.3s ease, transform 0.3s ease;
+            z-index: 1000000;
         }
 
         .lightbox-nav:hover {
-            border-color: var(--color-heading);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) scale(1.05);
         }
 
+        .lightbox-close svg,
         .lightbox-nav svg {
             width: 20px;
             height: 20px;
-            stroke: currentColor;
+            stroke: #ffffff !important;
             stroke-width: 2;
             fill: none;
             stroke-linecap: round;
@@ -785,13 +779,13 @@
             }
 
             .lightbox-nav {
-                width: 40px;
-                height: 40px;
+                width: 44px;
+                height: 44px;
             }
 
-            .lightbox-nav svg {
-                width: 16px;
-                height: 16px;
+            .lightbox-close {
+                top: 20px;
+                right: 20px;
             }
         }
 
@@ -1001,9 +995,6 @@
                         <button class="filter-btn" data-filter="devoyage">De Voyage</button>
                         <button class="filter-btn" data-filter="marby">Marby Chocolates</button>
                         <button class="filter-btn" data-filter="turnup">TurnUp</button>
-                        <button class="filter-btn" data-filter="x-emirates">X Emirates</button>
-                        <button class="filter-btn" data-filter="asm-builders">ASM Builders</button>
-                        <button class="filter-btn" data-filter="dubai-souq">Dubai Souq</button>
                         <button class="filter-btn" data-filter="excellence-ip">Excellence IP</button>
                         <button class="filter-btn" data-filter="nexa-classroom">Nexa Classroom</button>
                         <button class="filter-btn" data-filter="sign-restaurant">Sign Restaurant</button>
@@ -1038,9 +1029,6 @@
                         <option value="devoyage">De Voyage</option>
                         <option value="marby">Marby Chocolates</option>
                         <option value="turnup">TurnUp</option>
-                        <option value="x-emirates">X Emirates</option>
-                        <option value="asm-builders">ASM Builders</option>
-                        <option value="dubai-souq">Dubai Souq</option>
                         <option value="excellence-ip">Excellence IP</option>
                         <option value="nexa-classroom">Nexa Classroom</option>
                         <option value="sign-restaurant">Sign Restaurant</option>
@@ -1064,12 +1052,13 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="augma" data-type="instagram-story" data-sector="real-estate">
+                    <div class="masonry-item" data-client="augma" data-type="social-media-poster"
+                        data-sector="real-estate">
                         <img src="works/augma-social-2.png" alt="Augma Residency Story" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Augma Residency</div>
-                            <div class="item-title">Instagram Story</div>
+                            <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
 
@@ -1091,12 +1080,31 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="coromandal" data-type="menu-cards" data-sector="food">
+                    <div class="masonry-item" data-client="coromandal" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/coastal-social-3.png" alt="Coromandal Coastal Menu" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Coromandal Coastal</div>
-                            <div class="item-title">Menu Card</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="coromandal" data-type="social-media-poster"
+                        data-sector="food">
+                        <img src="works/coastal-social-4.jpg" alt="Coromandal Coastal Post" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Coromandal Coastal</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="coromandal" data-type="social-media-poster"
+                        data-sector="food">
+                        <img src="works/coastal-social-5.png" alt="Coromandal Coastal Post" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Coromandal Coastal</div>
+                            <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
 
@@ -1109,12 +1117,12 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="devoyage" data-type="instagram-story" data-sector="events">
+                    <div class="masonry-item" data-client="devoyage" data-type="social-media-poster" data-sector="">
                         <img src="works/devoyage-social-2.png" alt="De Voyage Design" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">De Voyage</div>
-                            <div class="item-title">Event Story</div>
+                            <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
                     <div class="masonry-item" data-client="devoyage" data-type="social-media-poster"
@@ -1133,25 +1141,25 @@
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Marby Chocolates</div>
-                            <div class="item-title">Product Campaign</div>
+                            <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="marby" data-type="instagram-story"
+                    <div class="masonry-item" data-client="marby" data-type="social-media-poster"
                         data-sector="food products">
                         <img src="works/marby-social-2.png" alt="Marby Chocolates Promo" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Marby Chocolates</div>
-                            <div class="item-title">Instagram Story</div>
+                            <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="marby" data-type="package-design"
+                    <div class="masonry-item" data-client="marby" data-type="social-media-poster"
                         data-sector="food products">
                         <img src="works/marby-social-3.png" alt="Marby Chocolates Package" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Marby Chocolates</div>
-                            <div class="item-title">Package Design</div>
+                            <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
                     <div class="masonry-item" data-client="marby" data-type="social-media-poster"
@@ -1172,13 +1180,13 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="marby" data-type="instagram-story"
+                    <div class="masonry-item" data-client="marby" data-type="social-media-poster"
                         data-sector="food products">
                         <img src="works/marby-social-6.png" alt="Marby Chocolates Promo" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Marby Chocolates</div>
-                            <div class="item-title">Instagram Story</div>
+                            <div class="item-title">Product Campaign</div>
                         </div>
                     </div>
                     <div class="masonry-item" data-client="marby" data-type="social-media-poster"
@@ -1187,7 +1195,7 @@
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Marby Chocolates</div>
-                            <div class="item-title">Social Media Poster</div>
+                            <div class="item-title">Product Campaign</div>
                         </div>
                     </div>
                     <div class="masonry-item" data-client="marby" data-type="social-media-poster"
@@ -1199,13 +1207,13 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="marby" data-type="package-design"
+                    <div class="masonry-item" data-client="marby" data-type="social-media-poster"
                         data-sector="food products">
                         <img src="works/marby-social-9.png" alt="Marby Chocolates Package" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Marby Chocolates</div>
-                            <div class="item-title">Package Design</div>
+                            <div class="item-title">Product Campaign</div>
                         </div>
                     </div>
                     <div class="masonry-item" data-client="marby" data-type="social-media-poster"
@@ -1218,8 +1226,7 @@
                         </div>
                     </div>
 
-                    <div class="masonry-item" data-client="turnup" data-type="social-media-poster"
-                        data-sector="events education">
+                    <div class="masonry-item" data-client="turnup" data-type="social-media-poster" data-sector="events">
                         <img src="works/turnup-social-1.png" alt="TurnUp Promo" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1227,137 +1234,130 @@
                             <div class="item-title">Event Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="turnup" data-type="instagram-story"
-                        data-sector="events education">
+                    <div class="masonry-item" data-client="turnup" data-type="social-media-poster" data-sector="events">
                         <img src="works/turnup-social-2.png" alt="TurnUp Promo" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">TurnUp</div>
-                            <div class="item-title">Instagram Story</div>
+                            <div class="item-title">Event Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="turnup" data-type="social-media-poster"
-                        data-sector="events education">
+                    <div class="masonry-item" data-client="turnup" data-type="social-media-poster" data-sector="events">
                         <img src="works/turnup-social-3.png" alt="TurnUp Promo" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">TurnUp</div>
-                            <div class="item-title">Social Media Poster</div>
+                            <div class="item-title">Event Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="turnup" data-type="social-media-poster"
-                        data-sector="events education">
+                    <div class="masonry-item" data-client="turnup" data-type="social-media-poster" data-sector="events">
                         <img src="works/turnup-social-4.png" alt="TurnUp Promo" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">TurnUp</div>
-                            <div class="item-title">Social Media Poster</div>
+                            <div class="item-title">Event Poster</div>
                         </div>
                     </div>
 
-                    <div class="masonry-item" data-client="x-emirates" data-type="social-media-poster"
-                        data-sector="real-estate others">
+                    <div class="masonry-item" data-client="" data-type="social-media-poster" data-sector="products">
                         <img src="works/xemirates-social-1.png" alt="X Emirates Promo" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">X Emirates</div>
-                            <div class="item-title">Social Media Poster</div>
+                            <div class="item-title">Product Campaign</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="x-emirates" data-type="social-media-poster"
-                        data-sector="real-estate others">
+                    <div class="masonry-item" data-client="" data-type="social-media-poster" data-sector="products">
                         <img src="works/xemirates-social-2.png" alt="X Emirates Promo" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">X Emirates</div>
-                            <div class="item-title">Social Media Poster</div>
+                            <div class="item-title">Product Campaign</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="x-emirates" data-type="brochure"
-                        data-sector="real-estate others">
+                    <div class="masonry-item" data-client="" data-type="social-media-poster" data-sector="products">
                         <img src="works/xemirates-social-3.png" alt="X Emirates Promo" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">X Emirates</div>
-                            <div class="item-title">Brochure Design</div>
+                            <div class="item-title">Product Campaign</div>
                         </div>
                     </div>
 
-                    <div class="masonry-item" data-client="others" data-type="social-media-poster"
-                        data-sector="products">
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="">
                         <img src="works/other-social-1.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Other Clients</div>
-                            <div class="item-title">Product Visual</div>
+                            <div class="item-title">Event Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="instagram-story" data-sector="events">
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="events">
                         <img src="works/other-social-2.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Other Clients</div>
-                            <div class="item-title">Event Story</div>
+                            <div class="item-title">Event Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="social-media-poster"
-                        data-sector="education">
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="">
                         <img src="works/other-social-3.png" alt="Other Works" loading="lazy">
-                        <div class="item-overlay"></div>
-                        <div class="item-text">
-                            <div class="item-client">Other Clients</div>
-                            <div class="item-title">Educational Poster</div>
-                        </div>
-                    </div>
-                    <div class="masonry-item" data-client="others" data-type="business-card" data-sector="others">
-                        <img src="works/other-social-4.png" alt="Other Works" loading="lazy">
-                        <div class="item-overlay"></div>
-                        <div class="item-text">
-                            <div class="item-client">Other Clients</div>
-                            <div class="item-title">Business Card</div>
-                        </div>
-                    </div>
-                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="food">
-                        <img src="works/other-social-5.png" alt="Other Works" loading="lazy">
-                        <div class="item-overlay"></div>
-                        <div class="item-text">
-                            <div class="item-client">Other Clients</div>
-                            <div class="item-title">Food Promotion</div>
-                        </div>
-                    </div>
-                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="others">
-                        <img src="works/other-social-6.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Other Clients</div>
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="instagram-story" data-sector="products">
+                    <div class="masonry-item" data-client="others" data-type="menu-cards" data-sector="food">
+                        <img src="works/other-social-4.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Offer Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="">
+                        <img src="works/other-social-5.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Social Media Poster</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="food">
+                        <img src="works/other-social-6.png" alt="Other Works" loading="lazy">
+                        <div class="item-overlay"></div>
+                        <div class="item-text">
+                            <div class="item-client">Other Clients</div>
+                            <div class="item-title">Product Campaign</div>
+                        </div>
+                    </div>
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster"
+                        data-sector="products">
                         <img src="works/other-social-7.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Other Clients</div>
-                            <div class="item-title">Product Story</div>
+                            <div class="item-title">Product Campaign</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="events">
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="">
                         <img src="works/other-social-8.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Other Clients</div>
-                            <div class="item-title">Event Promotion</div>
+                            <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="brochure" data-sector="education">
+                    <div class="masonry-item" data-client="others" data-type="others" data-sector="others">
                         <img src="works/other-merch-1.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
                             <div class="item-client">Other Clients</div>
-                            <div class="item-title">Brochure Design</div>
+                            <div class="item-title">Sports Jersey Design</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="others" data-type="others" data-sector="others">
                         <img src="works/other-print-1.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1365,7 +1365,7 @@
                             <div class="item-title">Volunteer Tag</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="package-design" data-sector="products">
+                    <div class="masonry-item" data-client="others" data-type="others" data-sector="">
                         <img src="works/other-print-2.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1373,8 +1373,7 @@
                             <div class="item-title">Volunteer Tag</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="social-media-poster"
-                        data-sector="real-estate">
+                    <div class="masonry-item" data-client="others" data-type="others" data-sector="">
                         <img src="works/other-print-3.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1382,7 +1381,7 @@
                             <div class="item-title">Volunteer Tag</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="menu-cards" data-sector="food">
+                    <div class="masonry-item" data-client="others" data-type="others" data-sector="">
                         <img src="works/other-print-4.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1391,8 +1390,8 @@
                         </div>
                     </div>
 
-                    <!-- ASM Builders -->
-                    <div class="masonry-item" data-client="asm-builders" data-type="social-media-poster" data-sector="real-estate">
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster"
+                        data-sector="real-estate">
                         <img src="works/asm-social-1.png" alt="ASM Builders" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1400,7 +1399,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="asm-builders" data-type="social-media-poster" data-sector="real-estate">
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster"
+                        data-sector="real-estate">
                         <img src="works/asm-social-2.png" alt="ASM Builders" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1408,7 +1408,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="asm-builders" data-type="social-media-poster" data-sector="real-estate">
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster"
+                        data-sector="real-estate">
                         <img src="works/asm-social-3.png" alt="ASM Builders" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1417,8 +1418,7 @@
                         </div>
                     </div>
 
-                    <!-- Dubai Souq -->
-                    <div class="masonry-item" data-client="dubai-souq" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="" data-type="social-media-poster" data-sector="products">
                         <img src="works/dubaisouq-social-1.png" alt="Dubai Souq" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1426,7 +1426,7 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="dubai-souq" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="" data-type="social-media-poster" data-sector="products">
                         <img src="works/dubaisouq-social-2.png" alt="Dubai Souq" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1434,7 +1434,7 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="dubai-souq" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="" data-type="social-media-poster" data-sector="products">
                         <img src="works/dubaisouq-social-3.png" alt="Dubai Souq" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1442,7 +1442,7 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="dubai-souq" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="" data-type="social-media-poster" data-sector="products">
                         <img src="works/dubaisouq-social-4.png" alt="Dubai Souq" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1451,8 +1451,8 @@
                         </div>
                     </div>
 
-                    <!-- Excellence IP -->
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-1.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1460,7 +1460,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-2.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1468,7 +1469,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-3.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1476,7 +1478,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-4.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1484,7 +1487,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-5.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1492,7 +1496,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-6.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1500,7 +1505,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-7.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1508,7 +1514,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-8.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1516,7 +1523,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-9.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1524,7 +1532,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-10.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1532,7 +1541,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-11.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1540,7 +1550,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-12.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1548,7 +1559,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-13.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1556,7 +1568,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-14.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1564,7 +1577,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-15.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1572,7 +1586,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="excellence-ip" data-type="social-media-poster"
+                        data-sector="others">
                         <img src="works/excellenceip-social-16.png" alt="Excellence IP" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1581,8 +1596,8 @@
                         </div>
                     </div>
 
-                    <!-- Nexa Classroom -->
-                    <div class="masonry-item" data-client="nexa-classroom" data-type="social-media-poster" data-sector="education">
+                    <div class="masonry-item" data-client="nexa-classroom" data-type="social-media-poster"
+                        data-sector="education">
                         <img src="works/nexa-social-1.png" alt="Nexa Classroom" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1590,7 +1605,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="nexa-classroom" data-type="social-media-poster" data-sector="education">
+                    <div class="masonry-item" data-client="nexa-classroom" data-type="social-media-poster"
+                        data-sector="education">
                         <img src="works/nexa-social-2.png" alt="Nexa Classroom" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1598,7 +1614,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="nexa-classroom" data-type="social-media-poster" data-sector="education">
+                    <div class="masonry-item" data-client="nexa-classroom" data-type="social-media-poster"
+                        data-sector="education">
                         <img src="works/nexa-social-3.png" alt="Nexa Classroom" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1606,7 +1623,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="nexa-classroom" data-type="social-media-poster" data-sector="education">
+                    <div class="masonry-item" data-client="nexa-classroom" data-type="social-media-poster"
+                        data-sector="education">
                         <img src="works/nexa-social-4.png" alt="Nexa Classroom" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1614,7 +1632,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="nexa-classroom" data-type="social-media-poster" data-sector="education">
+                    <div class="masonry-item" data-client="nexa-classroom" data-type="social-media-poster"
+                        data-sector="education">
                         <img src="works/nexa-social-5.png" alt="Nexa Classroom" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1623,8 +1642,8 @@
                         </div>
                     </div>
 
-                    <!-- Sign Restaurant -->
-                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster" data-sector="food">
+                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/sign-social-1.png" alt="Sign Restaurant" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1632,7 +1651,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster" data-sector="food">
+                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/sign-social-2.png" alt="Sign Restaurant" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1640,7 +1660,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster" data-sector="food">
+                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/sign-social-3.png" alt="Sign Restaurant" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1648,7 +1669,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster" data-sector="food">
+                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/sign-social-4.png" alt="Sign Restaurant" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1656,7 +1678,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster" data-sector="food">
+                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/sign-social-5.png" alt="Sign Restaurant" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1664,7 +1687,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster" data-sector="food">
+                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/sign-social-6.png" alt="Sign Restaurant" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1672,7 +1696,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster" data-sector="food">
+                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/sign-social-7.png" alt="Sign Restaurant" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1680,7 +1705,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster" data-sector="food">
+                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/sign-social-8.png" alt="Sign Restaurant" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1688,7 +1714,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster" data-sector="food">
+                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/sign-social-9.png" alt="Sign Restaurant" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1696,7 +1723,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster" data-sector="food">
+                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/sign-social-10.png" alt="Sign Restaurant" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1704,7 +1732,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster" data-sector="food">
+                    <div class="masonry-item" data-client="sign-restaurant" data-type="social-media-poster"
+                        data-sector="food">
                         <img src="works/sign-social-11.png" alt="Sign Restaurant" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1713,7 +1742,6 @@
                         </div>
                     </div>
 
-                    <!-- Others — Additional Items -->
                     <div class="masonry-item" data-client="others" data-type="instagram-story" data-sector="others">
                         <img src="works/other-story-1.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
@@ -1770,7 +1798,8 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster"
+                        data-sector="products">
                         <img src="works/other-social-10.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1778,7 +1807,7 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="food">
                         <img src="works/other-social-11.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1786,7 +1815,7 @@
                             <div class="item-title">Social Media Poster</div>
                         </div>
                     </div>
-                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="others">
+                    <div class="masonry-item" data-client="others" data-type="social-media-poster" data-sector="food">
                         <img src="works/other-social-12.png" alt="Other Works" loading="lazy">
                         <div class="item-overlay"></div>
                         <div class="item-text">
@@ -1825,7 +1854,7 @@
                 <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
         </button>
-        <img src="" alt="Fullscreen Work" class="lightbox-img" id="lightboxImg">
+        <img alt="Fullscreen Work" class="lightbox-img" id="lightboxImg">
     </div>
 
     <footer>
@@ -2022,64 +2051,93 @@
             const lightboxPrev = document.getElementById('lightboxPrev');
             const lightboxNext = document.getElementById('lightboxNext');
 
-            let gallery = [];     // { src, item } of currently visible works
-            let galIdx = 0;      // currently shown index
+            if (lightbox && lightboxImg) {
+                let currentItem = null;
 
-            /* collect all visible items into gallery[] using resolved absolute src */
-            function buildGallery() {
-                gallery = [];
-                document.querySelectorAll('#worksGrid .masonry-item').forEach(item => {
-                    if (getComputedStyle(item).display !== 'none') {
-                        const img = item.querySelector('img');
-                        gallery.push({ src: img.src, item });  // img.src = full absolute URL
-                    }
+                // Dynamically get currently visible items straight from the DOM
+                function getVisibleItems() {
+                    return Array.from(document.querySelectorAll('#worksGrid .masonry-item')).filter(item => {
+                        return !item.classList.contains('hidden') && item.style.display !== 'none';
+                    });
+                }
+
+                function openLightbox() {
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function showImage(item, andOpen) {
+                    if (!item) return;
+                    const img = item.querySelector('img');
+                    if (!img) return;
+
+                    currentItem = item;
+
+                    // Hide lightbox img while the new one loads
+                    lightboxImg.style.transition = 'none';
+                    lightboxImg.style.opacity = '0';
+                    lightboxImg.style.transform = 'scale(0.97)';
+
+                    // img.currentSrc is the absolute resolved URL the browser already used
+                    const src = img.currentSrc || img.src;
+                    lightboxImg.removeAttribute('src');
+
+                    setTimeout(() => {
+                        lightboxImg.src = src;
+                        if (andOpen) openLightbox();
+                        lightboxImg.decode().then(() => {
+                            lightboxImg.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                            lightboxImg.style.opacity = '1';
+                            lightboxImg.style.transform = 'scale(1)';
+                        }).catch(() => {
+                            lightboxImg.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                            lightboxImg.style.opacity = '1';
+                            lightboxImg.style.transform = 'scale(1)';
+                        });
+                    }, 20);
+                }
+
+                function showNext(direction) {
+                    const items = getVisibleItems();
+                    if (items.length === 0 || !currentItem) return;
+
+                    let idx = items.indexOf(currentItem);
+                    if (idx === -1) idx = 0;
+
+                    let newIdx = (idx + direction + items.length) % items.length;
+                    showImage(items[newIdx], false);
+                }
+
+                // Event Delegation catches clicks securely without bubbling issues
+                const grid = document.getElementById('worksGrid');
+                if (grid) {
+                    grid.addEventListener('click', function (e) {
+                        const item = e.target.closest('.masonry-item');
+                        if (!item || item.classList.contains('hidden') || item.style.display === 'none') return;
+
+                        e.preventDefault();
+                        showImage(item, true);
+                    });
+                }
+
+                if (lightboxPrev) lightboxPrev.addEventListener('click', e => { e.stopPropagation(); showNext(-1); });
+                if (lightboxNext) lightboxNext.addEventListener('click', e => { e.stopPropagation(); showNext(1); });
+
+                function closeLightbox() {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                    setTimeout(() => { lightboxImg.removeAttribute('src'); currentItem = null; }, 350);
+                }
+
+                if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+                document.addEventListener('keydown', e => {
+                    if (!lightbox.classList.contains('active')) return;
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') showNext(-1);
+                    if (e.key === 'ArrowRight') showNext(1);
                 });
             }
-
-            /* show a specific index with crossfade */
-            function showAt(idx) {
-                galIdx = ((idx % gallery.length) + gallery.length) % gallery.length;
-                lightboxImg.style.opacity = '0';
-                setTimeout(() => {
-                    lightboxImg.src = gallery[galIdx].src;
-                    lightboxImg.style.opacity = '1';
-                }, 160);
-            }
-
-            /* single delegated click listener on the grid */
-            document.getElementById('worksGrid').addEventListener('click', function (e) {
-                const item = e.target.closest('.masonry-item');
-                if (!item) return;
-                if (getComputedStyle(item).display === 'none') return;
-
-                buildGallery();
-                const clickedSrc = item.querySelector('img').src;  // full absolute URL
-                galIdx = gallery.findIndex(g => g.src === clickedSrc);
-                if (galIdx === -1) galIdx = 0;
-
-                lightboxImg.src = gallery[galIdx].src;
-                lightboxImg.style.opacity = '1';
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-
-            lightboxPrev.addEventListener('click', e => { e.stopPropagation(); showAt(galIdx - 1); });
-            lightboxNext.addEventListener('click', e => { e.stopPropagation(); showAt(galIdx + 1); });
-
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
-                setTimeout(() => { lightboxImg.removeAttribute('src'); }, 350);
-            }
-
-            lightboxClose.addEventListener('click', closeLightbox);
-            lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-            document.addEventListener('keydown', e => {
-                if (!lightbox.classList.contains('active')) return;
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showAt(galIdx - 1);
-                if (e.key === 'ArrowRight') showAt(galIdx + 1);
-            });
         });
     </script>
 </body>
